@@ -86,7 +86,9 @@ struct TranslateView: View {
 
     private func setupSpeechCallbacks() {
         speechRecognition.onTextChanged = { text in
-            inputText = text
+            if !text.isEmpty {
+                inputText = text
+            }
         }
         speechRecognition.onRecordingStopped = {
             isRecording = false

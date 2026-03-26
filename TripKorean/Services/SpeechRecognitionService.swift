@@ -30,7 +30,12 @@ final class SpeechRecognitionService: @unchecked Sendable {
     }
 
     func stopRecording() {
-        audioQueue.async { [self] in tearDown() }
+        audioQueue.async { [self] in
+            recognitionRequest?.endAudio()
+            audioEngine?.inputNode.removeTap(onBus: 0)
+            audioEngine?.stop()
+            audioEngine = nil
+        }
     }
 
     private func beginSession(language: String) {
@@ -75,13 +80,14 @@ final class SpeechRecognitionService: @unchecked Sendable {
             guard let self else { return }
             if let result {
                 let text = result.bestTranscription.formattedString
-                Task { @MainActor in self.onTextChanged?(text) }
+                if !text.isEmpty {
+                    Task { @MainActor in self.onTextChanged?(text) }
+                }
                 if result.isFinal {
                     self.audioQueue.async { self.tearDown() }
                     Task { @MainActor in self.onRecordingStopped?() }
                 }
-            }
-            if error != nil {
+            } else if error != nil {
                 self.audioQueue.async { self.tearDown() }
                 Task { @MainActor in self.onRecordingStopped?() }
             }
