@@ -31,7 +31,7 @@
 		11F77E260CD35FD3C2555CD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15DF86063B6AA182EF1AECED /* FavoritesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStore.swift; sourceTree = "<group>"; };
 		1E67E315B707747B9A66F428 /* PhotoTranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTranslateView.swift; sourceTree = "<group>"; };
-		44C3E70079728BEC209F87B6 /* TripKorean.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TripKorean.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		44C3E70079728BEC209F87B6 /* TripKorean.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripKorean.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		673BB165E45752AB77C7575B /* Phrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
 		6BC117004CF3F83D3424329E /* SpeechRecognitionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionService.swift; sourceTree = "<group>"; };
 		7D2ED71611E27117894255E7 /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
@@ -152,8 +152,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 2630;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 929B44E3EADDA7272B05FAD8 /* Build configuration list for PBXProject "TripKorean" */;
 			developmentRegion = en;
@@ -342,6 +340,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = VX78M2QPJX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "TripKorean needs camera access to scan and translate Korean text on signs and menus.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TripKorean needs microphone access for voice input and speech recognition.";
@@ -368,6 +367,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = VX78M2QPJX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "TripKorean needs camera access to scan and translate Korean text on signs and menus.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TripKorean needs microphone access for voice input and speech recognition.";
