@@ -1,0 +1,1708 @@
+{
+  "categories": [
+    {
+      "id": "greetings",
+      "name": "基本问候",
+      "icon": "hand.wave.fill",
+      "phrases": [
+        {
+          "id": "g1",
+          "korean": "안녕하세요",
+          "pronunciation": "an-nyeong-ha-se-yo",
+          "chinese": "你好",
+          "english": "Hello",
+          "note": "最常用的问候语，适用于任何场合"
+        },
+        {
+          "id": "g2",
+          "korean": "감사합니다",
+          "pronunciation": "gam-sa-ham-ni-da",
+          "chinese": "谢谢",
+          "english": "Thank you",
+          "note": "正式的感谢用语"
+        },
+        {
+          "id": "g3",
+          "korean": "죄송합니다",
+          "pronunciation": "joe-song-ham-ni-da",
+          "chinese": "对不起",
+          "english": "I'm sorry",
+          "note": null
+        },
+        {
+          "id": "g4",
+          "korean": "네",
+          "pronunciation": "ne",
+          "chinese": "是的",
+          "english": "Yes",
+          "note": null
+        },
+        {
+          "id": "g5",
+          "korean": "아니요",
+          "pronunciation": "a-ni-yo",
+          "chinese": "不是",
+          "english": "No",
+          "note": null
+        },
+        {
+          "id": "g6",
+          "korean": "안녕히 가세요",
+          "pronunciation": "an-nyeong-hi ga-se-yo",
+          "chinese": "再见（对离开的人说）",
+          "english": "Goodbye (to someone leaving)",
+          "note": "对方要走时说"
+        },
+        {
+          "id": "g7",
+          "korean": "실례합니다",
+          "pronunciation": "sil-lye-ham-ni-da",
+          "chinese": "打扰一下",
+          "english": "Excuse me",
+          "note": null
+        },
+        {
+          "id": "g8",
+          "korean": "안녕히 계세요",
+          "pronunciation": "an-nyeong-hi gye-se-yo",
+          "chinese": "再见（对留下的人说）",
+          "english": "Goodbye (to someone staying)",
+          "note": "自己要走时对留下的人说"
+        },
+        {
+          "id": "g9",
+          "korean": "고마워요",
+          "pronunciation": "go-ma-wo-yo",
+          "chinese": "谢谢（半敬语）",
+          "english": "Thanks",
+          "note": "比감사합니다稍随意，适合对同龄人或年轻人说"
+        },
+        {
+          "id": "g10",
+          "korean": "괜찮아요",
+          "pronunciation": "gwaen-cha-na-yo",
+          "chinese": "没关系 / 没事",
+          "english": "It's okay",
+          "note": "也可用于表示'我没事'"
+        },
+        {
+          "id": "g11",
+          "korean": "만나서 반갑습니다",
+          "pronunciation": "man-na-seo ban-gap-seum-ni-da",
+          "chinese": "很高兴认识你",
+          "english": "Nice to meet you",
+          "note": "初次见面时的正式问候"
+        },
+        {
+          "id": "g12",
+          "korean": "잠시만요",
+          "pronunciation": "jam-si-man-yo",
+          "chinese": "请等一下",
+          "english": "Just a moment",
+          "note": null
+        },
+        {
+          "id": "g13",
+          "korean": "잘 지내세요?",
+          "pronunciation": "jal ji-nae-se-yo",
+          "chinese": "你过得好吗？",
+          "english": "How are you?",
+          "note": null
+        },
+        {
+          "id": "g14",
+          "korean": "또 만나요",
+          "pronunciation": "tto man-na-yo",
+          "chinese": "下次再见",
+          "english": "See you again",
+          "note": null
+        },
+        {
+          "id": "g15",
+          "korean": "천만에요",
+          "pronunciation": "cheon-man-e-yo",
+          "chinese": "不客气",
+          "english": "You're welcome",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "restaurant",
+      "name": "餐厅用餐",
+      "icon": "fork.knife",
+      "phrases": [
+        {
+          "id": "r1",
+          "korean": "메뉴판 주세요",
+          "pronunciation": "me-nyu-pan ju-se-yo",
+          "chinese": "请给我菜单",
+          "english": "Menu, please",
+          "note": null
+        },
+        {
+          "id": "r2",
+          "korean": "이것 주세요",
+          "pronunciation": "i-geot ju-se-yo",
+          "chinese": "请给我这个",
+          "english": "This one, please",
+          "note": "点菜时指着菜单说"
+        },
+        {
+          "id": "r3",
+          "korean": "물 주세요",
+          "pronunciation": "mul ju-se-yo",
+          "chinese": "请给我水",
+          "english": "Water, please",
+          "note": null
+        },
+        {
+          "id": "r4",
+          "korean": "맛있어요",
+          "pronunciation": "ma-si-sseo-yo",
+          "chinese": "好吃",
+          "english": "It's delicious",
+          "note": null
+        },
+        {
+          "id": "r5",
+          "korean": "계산해 주세요",
+          "pronunciation": "gye-san-hae ju-se-yo",
+          "chinese": "请结账",
+          "english": "Check, please",
+          "note": null
+        },
+        {
+          "id": "r6",
+          "korean": "얼마예요?",
+          "pronunciation": "eol-ma-ye-yo",
+          "chinese": "多少钱？",
+          "english": "How much is it?",
+          "note": "万能问价句"
+        },
+        {
+          "id": "r7",
+          "korean": "안 맵게 해주세요",
+          "pronunciation": "an maep-ge hae-ju-se-yo",
+          "chinese": "请做不辣的",
+          "english": "Not spicy, please",
+          "note": "韩国料理有时很辣，这句很实用"
+        },
+        {
+          "id": "r8",
+          "korean": "추천 메뉴가 뭐예요?",
+          "pronunciation": "chu-cheon me-nyu-ga mwo-ye-yo",
+          "chinese": "推荐的菜是什么？",
+          "english": "What do you recommend?",
+          "note": "不知道点什么时非常好用"
+        },
+        {
+          "id": "r9",
+          "korean": "한 명이요",
+          "pronunciation": "han myeong-i-yo",
+          "chinese": "一个人",
+          "english": "One person",
+          "note": "一个人吃饭时回答店员"
+        },
+        {
+          "id": "r10",
+          "korean": "반찬 더 주세요",
+          "pronunciation": "ban-chan deo ju-se-yo",
+          "chinese": "请再给我一些小菜",
+          "english": "More side dishes, please",
+          "note": "韩国餐厅的小菜通常可以免费续"
+        },
+        {
+          "id": "r11",
+          "korean": "소주 한 병 주세요",
+          "pronunciation": "so-ju han byeong ju-se-yo",
+          "chinese": "请给我一瓶烧酒",
+          "english": "One bottle of soju, please",
+          "note": null
+        },
+        {
+          "id": "r12",
+          "korean": "배불러요",
+          "pronunciation": "bae-bul-leo-yo",
+          "chinese": "吃饱了",
+          "english": "I'm full",
+          "note": null
+        },
+        {
+          "id": "r13",
+          "korean": "포장해 주세요",
+          "pronunciation": "po-jang-hae ju-se-yo",
+          "chinese": "请打包",
+          "english": "To go, please",
+          "note": null
+        },
+        {
+          "id": "r14",
+          "korean": "예약했어요",
+          "pronunciation": "ye-ya-kae-sseo-yo",
+          "chinese": "我预约了",
+          "english": "I have a reservation",
+          "note": null
+        },
+        {
+          "id": "r15",
+          "korean": "화장실이 어디예요?",
+          "pronunciation": "hwa-jang-sil-i eo-di-ye-yo",
+          "chinese": "洗手间在哪里？",
+          "english": "Where is the restroom?",
+          "note": "在任何场所都可以用"
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "交通出行",
+      "icon": "bus.fill",
+      "phrases": [
+        {
+          "id": "t1",
+          "korean": "이 근처에 지하철역이 어디예요?",
+          "pronunciation": "i geun-cheo-e ji-ha-cheol-yeog-i eo-di-ye-yo",
+          "chinese": "这附近地铁站在哪里？",
+          "english": "Where is the nearest subway station?",
+          "note": null
+        },
+        {
+          "id": "t2",
+          "korean": "여기 가주세요",
+          "pronunciation": "yeo-gi ga-ju-se-yo",
+          "chinese": "请去这里",
+          "english": "Please go here",
+          "note": "打车时指着地图说"
+        },
+        {
+          "id": "t3",
+          "korean": "여기서 내려주세요",
+          "pronunciation": "yeo-gi-seo nae-ryeo-ju-se-yo",
+          "chinese": "请在这里停车",
+          "english": "Please stop here",
+          "note": null
+        },
+        {
+          "id": "t4",
+          "korean": "몇 번 출구예요?",
+          "pronunciation": "myeot beon chul-gu-ye-yo",
+          "chinese": "几号出口？",
+          "english": "Which exit number?",
+          "note": null
+        },
+        {
+          "id": "t5",
+          "korean": "얼마나 걸려요?",
+          "pronunciation": "eol-ma-na geol-lyeo-yo",
+          "chinese": "需要多长时间？",
+          "english": "How long does it take?",
+          "note": null
+        },
+        {
+          "id": "t6",
+          "korean": "택시 타는 곳이 어디예요?",
+          "pronunciation": "taek-si ta-neun gos-i eo-di-ye-yo",
+          "chinese": "出租车乘车点在哪里？",
+          "english": "Where is the taxi stand?",
+          "note": null
+        },
+        {
+          "id": "t7",
+          "korean": "이 버스가 명동에 가요?",
+          "pronunciation": "i beo-seu-ga myeong-dong-e ga-yo",
+          "chinese": "这辆公交车去明洞吗？",
+          "english": "Does this bus go to Myeongdong?",
+          "note": "把明洞换成其他地名即可"
+        },
+        {
+          "id": "t8",
+          "korean": "교통카드 어디서 충전해요?",
+          "pronunciation": "gyo-tong-ka-deu eo-di-seo chung-jeon-hae-yo",
+          "chinese": "交通卡在哪里充值？",
+          "english": "Where can I recharge my transit card?",
+          "note": "T-money卡可在便利店充值"
+        },
+        {
+          "id": "t9",
+          "korean": "갈아타야 해요?",
+          "pronunciation": "ga-ra-ta-ya hae-yo",
+          "chinese": "需要换乘吗？",
+          "english": "Do I need to transfer?",
+          "note": null
+        },
+        {
+          "id": "t10",
+          "korean": "다음 역이 어디예요?",
+          "pronunciation": "da-eum yeog-i eo-di-ye-yo",
+          "chinese": "下一站是哪里？",
+          "english": "What is the next station?",
+          "note": null
+        },
+        {
+          "id": "t11",
+          "korean": "공항까지 얼마예요?",
+          "pronunciation": "gong-hang-kka-ji eol-ma-ye-yo",
+          "chinese": "到机场多少钱？",
+          "english": "How much to the airport?",
+          "note": null
+        },
+        {
+          "id": "t12",
+          "korean": "길을 잃었어요",
+          "pronunciation": "gil-eul il-eo-sseo-yo",
+          "chinese": "我迷路了",
+          "english": "I'm lost",
+          "note": null
+        },
+        {
+          "id": "t13",
+          "korean": "걸어서 갈 수 있어요?",
+          "pronunciation": "geo-reo-seo gal su i-sseo-yo",
+          "chinese": "可以走路去吗？",
+          "english": "Can I walk there?",
+          "note": null
+        },
+        {
+          "id": "t14",
+          "korean": "이 주소로 가주세요",
+          "pronunciation": "i ju-so-ro ga-ju-se-yo",
+          "chinese": "请去这个地址",
+          "english": "Please go to this address",
+          "note": "给司机看手机上的地址时说"
+        }
+      ]
+    },
+    {
+      "id": "shopping",
+      "name": "购物",
+      "icon": "bag.fill",
+      "phrases": [
+        {
+          "id": "s1",
+          "korean": "이거 얼마예요?",
+          "pronunciation": "i-geo eol-ma-ye-yo",
+          "chinese": "这个多少钱？",
+          "english": "How much is this?",
+          "note": null
+        },
+        {
+          "id": "s2",
+          "korean": "좀 깎아주세요",
+          "pronunciation": "jom kkakk-a-ju-se-yo",
+          "chinese": "请便宜一点",
+          "english": "Please give me a discount",
+          "note": "在市场砍价时用"
+        },
+        {
+          "id": "s3",
+          "korean": "카드 돼요?",
+          "pronunciation": "ka-deu dwae-yo",
+          "chinese": "可以刷卡吗？",
+          "english": "Can I pay by card?",
+          "note": null
+        },
+        {
+          "id": "s4",
+          "korean": "다른 색 있어요?",
+          "pronunciation": "da-reun saek i-sseo-yo",
+          "chinese": "有其他颜色吗？",
+          "english": "Do you have other colors?",
+          "note": null
+        },
+        {
+          "id": "s5",
+          "korean": "면세 돼요?",
+          "pronunciation": "myeon-se dwae-yo",
+          "chinese": "可以免税吗？",
+          "english": "Is it tax-free?",
+          "note": null
+        },
+        {
+          "id": "s6",
+          "korean": "입어봐도 돼요?",
+          "pronunciation": "ib-eo-bwa-do dwae-yo",
+          "chinese": "可以试穿吗？",
+          "english": "Can I try it on?",
+          "note": null
+        },
+        {
+          "id": "s7",
+          "korean": "더 큰 사이즈 있어요?",
+          "pronunciation": "deo keun sa-i-jeu i-sseo-yo",
+          "chinese": "有更大的尺码吗？",
+          "english": "Do you have a bigger size?",
+          "note": null
+        },
+        {
+          "id": "s8",
+          "korean": "더 작은 사이즈 있어요?",
+          "pronunciation": "deo jag-eun sa-i-jeu i-sseo-yo",
+          "chinese": "有更小的尺码吗？",
+          "english": "Do you have a smaller size?",
+          "note": null
+        },
+        {
+          "id": "s9",
+          "korean": "교환할 수 있어요?",
+          "pronunciation": "gyo-hwan-hal su i-sseo-yo",
+          "chinese": "可以换货吗？",
+          "english": "Can I exchange this?",
+          "note": null
+        },
+        {
+          "id": "s10",
+          "korean": "환불 돼요?",
+          "pronunciation": "hwan-bul dwae-yo",
+          "chinese": "可以退款吗？",
+          "english": "Can I get a refund?",
+          "note": null
+        },
+        {
+          "id": "s11",
+          "korean": "영수증 주세요",
+          "pronunciation": "yeong-su-jeung ju-se-yo",
+          "chinese": "请给我收据",
+          "english": "Receipt, please",
+          "note": "退税时需要保留收据"
+        },
+        {
+          "id": "s12",
+          "korean": "그냥 구경하고 있어요",
+          "pronunciation": "geu-nyang gu-gyeong-ha-go i-sseo-yo",
+          "chinese": "我只是看看",
+          "english": "I'm just looking",
+          "note": "店员过来招呼时可以这样说"
+        },
+        {
+          "id": "s13",
+          "korean": "선물 포장해 주세요",
+          "pronunciation": "seon-mul po-jang-hae ju-se-yo",
+          "chinese": "请帮我包装成礼物",
+          "english": "Gift wrap, please",
+          "note": null
+        },
+        {
+          "id": "s14",
+          "korean": "현금으로 할게요",
+          "pronunciation": "hyeon-geum-eu-ro hal-ge-yo",
+          "chinese": "用现金付",
+          "english": "I'll pay in cash",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "emergency",
+      "name": "紧急情况",
+      "icon": "exclamationmark.triangle.fill",
+      "phrases": [
+        {
+          "id": "e1",
+          "korean": "도와주세요!",
+          "pronunciation": "do-wa-ju-se-yo",
+          "chinese": "请帮帮我！",
+          "english": "Help me!",
+          "note": null
+        },
+        {
+          "id": "e2",
+          "korean": "경찰을 불러주세요",
+          "pronunciation": "gyeong-chal-eul bul-leo-ju-se-yo",
+          "chinese": "请叫警察",
+          "english": "Please call the police",
+          "note": null
+        },
+        {
+          "id": "e3",
+          "korean": "병원이 어디예요?",
+          "pronunciation": "byeong-won-i eo-di-ye-yo",
+          "chinese": "医院在哪里？",
+          "english": "Where is the hospital?",
+          "note": null
+        },
+        {
+          "id": "e4",
+          "korean": "아파요",
+          "pronunciation": "a-pa-yo",
+          "chinese": "我不舒服 / 我疼",
+          "english": "I'm sick / It hurts",
+          "note": null
+        },
+        {
+          "id": "e5",
+          "korean": "한국어 못해요",
+          "pronunciation": "han-gug-eo mo-tae-yo",
+          "chinese": "我不会韩语",
+          "english": "I can't speak Korean",
+          "note": "在需要沟通困难时使用"
+        },
+        {
+          "id": "e6",
+          "korean": "중국어 할 수 있는 분 계세요?",
+          "pronunciation": "jung-gug-eo hal su in-neun bun gye-se-yo",
+          "chinese": "有会说中文的人吗？",
+          "english": "Is there anyone who speaks Chinese?",
+          "note": null
+        },
+        {
+          "id": "e7",
+          "korean": "여권을 잃어버렸어요",
+          "pronunciation": "yeo-gwon-eul il-eo-beo-ryeo-sseo-yo",
+          "chinese": "我的护照丢了",
+          "english": "I lost my passport",
+          "note": "立即联系中国大使馆：02-738-1038"
+        },
+        {
+          "id": "e8",
+          "korean": "구급차를 불러주세요",
+          "pronunciation": "gu-geup-cha-reul bul-leo-ju-se-yo",
+          "chinese": "请叫救护车",
+          "english": "Please call an ambulance",
+          "note": "韩国急救电话：119"
+        },
+        {
+          "id": "e9",
+          "korean": "약국이 어디예요?",
+          "pronunciation": "yak-gug-i eo-di-ye-yo",
+          "chinese": "药店在哪里？",
+          "english": "Where is the pharmacy?",
+          "note": null
+        },
+        {
+          "id": "e10",
+          "korean": "지갑을 잃어버렸어요",
+          "pronunciation": "ji-gab-eul il-eo-beo-ryeo-sseo-yo",
+          "chinese": "我的钱包丢了",
+          "english": "I lost my wallet",
+          "note": null
+        },
+        {
+          "id": "e11",
+          "korean": "대사관에 연락해 주세요",
+          "pronunciation": "dae-sa-gwan-e yeol-la-kae ju-se-yo",
+          "chinese": "请帮我联系大使馆",
+          "english": "Please contact the embassy",
+          "note": null
+        },
+        {
+          "id": "e12",
+          "korean": "알레르기가 있어요",
+          "pronunciation": "al-le-reu-gi-ga i-sseo-yo",
+          "chinese": "我有过敏",
+          "english": "I have allergies",
+          "note": "吃饭或看医生时很重要"
+        },
+        {
+          "id": "e13",
+          "korean": "핸드폰을 잃어버렸어요",
+          "pronunciation": "haen-deu-pon-eul il-eo-beo-ryeo-sseo-yo",
+          "chinese": "我的手机丢了",
+          "english": "I lost my phone",
+          "note": null
+        },
+        {
+          "id": "e14",
+          "korean": "영어 할 수 있는 분 계세요?",
+          "pronunciation": "yeong-eo hal su in-neun bun gye-se-yo",
+          "chinese": "有会说英语的人吗？",
+          "english": "Is there anyone who speaks English?",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "hotel",
+      "name": "住宿酒店",
+      "icon": "bed.double.fill",
+      "phrases": [
+        {
+          "id": "h1",
+          "korean": "체크인 하고 싶어요",
+          "pronunciation": "che-keu-in ha-go sip-eo-yo",
+          "chinese": "我想办理入住",
+          "english": "I'd like to check in",
+          "note": null
+        },
+        {
+          "id": "h2",
+          "korean": "예약했어요. 이름은 ○○○입니다",
+          "pronunciation": "ye-ya-kae-sseo-yo. i-reum-eun ○○○-im-ni-da",
+          "chinese": "我预约了，名字是○○○",
+          "english": "I have a reservation. My name is ○○○",
+          "note": "把○○○换成自己的名字"
+        },
+        {
+          "id": "h3",
+          "korean": "체크아웃은 몇 시예요?",
+          "pronunciation": "che-keu-a-us-eun myeot si-ye-yo",
+          "chinese": "退房时间是几点？",
+          "english": "What time is checkout?",
+          "note": null
+        },
+        {
+          "id": "h4",
+          "korean": "와이파이 비밀번호가 뭐예요?",
+          "pronunciation": "wa-i-pa-i bi-mil-beon-ho-ga mwo-ye-yo",
+          "chinese": "WiFi密码是什么？",
+          "english": "What is the WiFi password?",
+          "note": null
+        },
+        {
+          "id": "h5",
+          "korean": "방을 바꿔주세요",
+          "pronunciation": "bang-eul ba-kkwo-ju-se-yo",
+          "chinese": "请帮我换房间",
+          "english": "Please change my room",
+          "note": null
+        },
+        {
+          "id": "h6",
+          "korean": "수건 좀 더 주세요",
+          "pronunciation": "su-geon jom deo ju-se-yo",
+          "chinese": "请再给我一些毛巾",
+          "english": "More towels, please",
+          "note": null
+        },
+        {
+          "id": "h7",
+          "korean": "에어컨이 안 돼요",
+          "pronunciation": "e-eo-keon-i an dwae-yo",
+          "chinese": "空调不工作了",
+          "english": "The air conditioner doesn't work",
+          "note": null
+        },
+        {
+          "id": "h8",
+          "korean": "짐을 맡아주세요",
+          "pronunciation": "jim-eul mat-a-ju-se-yo",
+          "chinese": "请帮我保管行李",
+          "english": "Please keep my luggage",
+          "note": "退房后还想逛街时很有用"
+        },
+        {
+          "id": "h9",
+          "korean": "조식은 몇 시부터예요?",
+          "pronunciation": "jo-sig-eun myeot si-bu-teo-ye-yo",
+          "chinese": "早餐从几点开始？",
+          "english": "What time does breakfast start?",
+          "note": null
+        },
+        {
+          "id": "h10",
+          "korean": "뜨거운 물이 안 나와요",
+          "pronunciation": "tteu-geo-un mul-i an na-wa-yo",
+          "chinese": "没有热水",
+          "english": "There's no hot water",
+          "note": null
+        },
+        {
+          "id": "h11",
+          "korean": "하루 더 묵고 싶어요",
+          "pronunciation": "ha-ru deo muk-go sip-eo-yo",
+          "chinese": "我想多住一晚",
+          "english": "I'd like to stay one more night",
+          "note": null
+        },
+        {
+          "id": "h12",
+          "korean": "택시를 불러주세요",
+          "pronunciation": "taek-si-reul bul-leo-ju-se-yo",
+          "chinese": "请帮我叫出租车",
+          "english": "Please call a taxi for me",
+          "note": null
+        },
+        {
+          "id": "h13",
+          "korean": "열쇠를 방에 두고 왔어요",
+          "pronunciation": "yeol-soe-reul bang-e du-go wa-sseo-yo",
+          "chinese": "我把钥匙忘在房间里了",
+          "english": "I left my key in the room",
+          "note": null
+        },
+        {
+          "id": "h14",
+          "korean": "근처에 편의점 있어요?",
+          "pronunciation": "geun-cheo-e pyeon-ui-jeom i-sseo-yo",
+          "chinese": "附近有便利店吗？",
+          "english": "Is there a convenience store nearby?",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "sightseeing",
+      "name": "观光旅游",
+      "icon": "camera.fill",
+      "phrases": [
+        {
+          "id": "ss1",
+          "korean": "입장료가 얼마예요?",
+          "pronunciation": "ip-jang-nyo-ga eol-ma-ye-yo",
+          "chinese": "门票多少钱？",
+          "english": "How much is the admission fee?",
+          "note": null
+        },
+        {
+          "id": "ss2",
+          "korean": "사진 찍어주세요",
+          "pronunciation": "sa-jin jjig-eo-ju-se-yo",
+          "chinese": "请帮我拍照",
+          "english": "Please take a photo for me",
+          "note": "把手机递给对方时说"
+        },
+        {
+          "id": "ss3",
+          "korean": "여기서 사진 찍어도 돼요?",
+          "pronunciation": "yeo-gi-seo sa-jin jjig-eo-do dwae-yo",
+          "chinese": "这里可以拍照吗？",
+          "english": "Can I take photos here?",
+          "note": "部分博物馆和寺庙禁止拍照"
+        },
+        {
+          "id": "ss4",
+          "korean": "관람 시간이 어떻게 돼요?",
+          "pronunciation": "gwal-lam si-gan-i eo-tteo-ke dwae-yo",
+          "chinese": "参观时间是怎样的？",
+          "english": "What are the visiting hours?",
+          "note": null
+        },
+        {
+          "id": "ss5",
+          "korean": "가이드 투어 있어요?",
+          "pronunciation": "ga-i-deu tu-eo i-sseo-yo",
+          "chinese": "有导游讲解吗？",
+          "english": "Is there a guided tour?",
+          "note": null
+        },
+        {
+          "id": "ss6",
+          "korean": "학생 할인 돼요?",
+          "pronunciation": "hak-saeng hal-in dwae-yo",
+          "chinese": "有学生优惠吗？",
+          "english": "Is there a student discount?",
+          "note": "需要出示学生证"
+        },
+        {
+          "id": "ss7",
+          "korean": "지도 있어요?",
+          "pronunciation": "ji-do i-sseo-yo",
+          "chinese": "有地图吗？",
+          "english": "Do you have a map?",
+          "note": null
+        },
+        {
+          "id": "ss8",
+          "korean": "여기가 어디예요?",
+          "pronunciation": "yeo-gi-ga eo-di-ye-yo",
+          "chinese": "这里是哪里？",
+          "english": "Where is this place?",
+          "note": null
+        },
+        {
+          "id": "ss9",
+          "korean": "유명한 관광지가 어디예요?",
+          "pronunciation": "yu-myeong-han gwan-gwang-ji-ga eo-di-ye-yo",
+          "chinese": "有名的景点在哪里？",
+          "english": "Where are the famous tourist spots?",
+          "note": null
+        },
+        {
+          "id": "ss10",
+          "korean": "기념품 가게가 어디예요?",
+          "pronunciation": "gi-nyeom-pum ga-ge-ga eo-di-ye-yo",
+          "chinese": "纪念品商店在哪里？",
+          "english": "Where is the souvenir shop?",
+          "note": null
+        },
+        {
+          "id": "ss11",
+          "korean": "한복 체험할 수 있어요?",
+          "pronunciation": "han-bok che-heom-hal su i-sseo-yo",
+          "chinese": "可以体验韩服吗？",
+          "english": "Can I try on hanbok?",
+          "note": "穿韩服可以免费进入景福宫等宫殿"
+        },
+        {
+          "id": "ss12",
+          "korean": "몇 시에 문 닫아요?",
+          "pronunciation": "myeot si-e mun da-da-yo",
+          "chinese": "几点关门？",
+          "english": "What time do you close?",
+          "note": null
+        },
+        {
+          "id": "ss13",
+          "korean": "표 두 장 주세요",
+          "pronunciation": "pyo du jang ju-se-yo",
+          "chinese": "请给我两张票",
+          "english": "Two tickets, please",
+          "note": null
+        },
+        {
+          "id": "ss14",
+          "korean": "중국어 안내서 있어요?",
+          "pronunciation": "jung-gug-eo an-nae-seo i-sseo-yo",
+          "chinese": "有中文导览手册吗？",
+          "english": "Do you have a Chinese guide?",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "cafe",
+      "name": "咖啡厅",
+      "icon": "cup.and.saucer.fill",
+      "phrases": [
+        {
+          "id": "cf1",
+          "korean": "아메리카노 한 잔 주세요",
+          "pronunciation": "a-me-ri-ka-no han jan ju-se-yo",
+          "chinese": "请给我一杯美式咖啡",
+          "english": "One Americano, please",
+          "note": "韩国最受欢迎的咖啡"
+        },
+        {
+          "id": "cf2",
+          "korean": "아이스로 주세요",
+          "pronunciation": "a-i-seu-ro ju-se-yo",
+          "chinese": "请给我冰的",
+          "english": "Iced, please",
+          "note": "韩国人一年四季都喝冰咖啡"
+        },
+        {
+          "id": "cf3",
+          "korean": "따뜻한 걸로 주세요",
+          "pronunciation": "tta-tteu-tan geol-lo ju-se-yo",
+          "chinese": "请给我热的",
+          "english": "Hot, please",
+          "note": null
+        },
+        {
+          "id": "cf4",
+          "korean": "사이즈가 어떻게 돼요?",
+          "pronunciation": "sa-i-jeu-ga eo-tteo-ke dwae-yo",
+          "chinese": "有什么尺寸？",
+          "english": "What sizes do you have?",
+          "note": null
+        },
+        {
+          "id": "cf5",
+          "korean": "라떼 한 잔 주세요",
+          "pronunciation": "la-tte han jan ju-se-yo",
+          "chinese": "请给我一杯拿铁",
+          "english": "One latte, please",
+          "note": null
+        },
+        {
+          "id": "cf6",
+          "korean": "디카페인으로 돼요?",
+          "pronunciation": "di-ka-pe-in-eu-ro dwae-yo",
+          "chinese": "可以做无咖啡因的吗？",
+          "english": "Can I get decaf?",
+          "note": null
+        },
+        {
+          "id": "cf7",
+          "korean": "케이크도 하나 주세요",
+          "pronunciation": "ke-i-keu-do ha-na ju-se-yo",
+          "chinese": "也请给我一块蛋糕",
+          "english": "One cake too, please",
+          "note": null
+        },
+        {
+          "id": "cf8",
+          "korean": "여기서 먹을 거예요",
+          "pronunciation": "yeo-gi-seo meog-eul geo-ye-yo",
+          "chinese": "在这里吃",
+          "english": "For here",
+          "note": null
+        },
+        {
+          "id": "cf9",
+          "korean": "가져갈 거예요",
+          "pronunciation": "ga-jyeo-gal geo-ye-yo",
+          "chinese": "带走",
+          "english": "To go",
+          "note": null
+        },
+        {
+          "id": "cf10",
+          "korean": "설탕 빼주세요",
+          "pronunciation": "seol-tang ppae-ju-se-yo",
+          "chinese": "请不要加糖",
+          "english": "No sugar, please",
+          "note": null
+        },
+        {
+          "id": "cf11",
+          "korean": "와이파이 있어요?",
+          "pronunciation": "wa-i-pa-i i-sseo-yo",
+          "chinese": "有WiFi吗？",
+          "english": "Do you have WiFi?",
+          "note": null
+        },
+        {
+          "id": "cf12",
+          "korean": "콘센트 있는 자리 있어요?",
+          "pronunciation": "kon-sen-teu in-neun ja-ri i-sseo-yo",
+          "chinese": "有带插座的座位吗？",
+          "english": "Is there a seat with an outlet?",
+          "note": "想在咖啡厅充电或工作时用"
+        },
+        {
+          "id": "cf13",
+          "korean": "샷 추가해 주세요",
+          "pronunciation": "syat chu-ga-hae ju-se-yo",
+          "chinese": "请加一份浓缩",
+          "english": "An extra shot, please",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "numbers",
+      "name": "数字和时间",
+      "icon": "clock.fill",
+      "phrases": [
+        {
+          "id": "n1",
+          "korean": "하나, 둘, 셋, 넷, 다섯",
+          "pronunciation": "ha-na, dul, set, net, da-seot",
+          "chinese": "一、二、三、四、五（固有数词）",
+          "english": "One, two, three, four, five (native Korean)",
+          "note": "固有数词用于数物品、说年龄等"
+        },
+        {
+          "id": "n2",
+          "korean": "여섯, 일곱, 여덟, 아홉, 열",
+          "pronunciation": "yeo-seot, il-gop, yeo-deolp, a-hop, yeol",
+          "chinese": "六、七、八、九、十（固有数词）",
+          "english": "Six, seven, eight, nine, ten (native Korean)",
+          "note": null
+        },
+        {
+          "id": "n3",
+          "korean": "일, 이, 삼, 사, 오",
+          "pronunciation": "il, i, sam, sa, o",
+          "chinese": "一、二、三、四、五（汉字数词）",
+          "english": "One, two, three, four, five (Sino-Korean)",
+          "note": "汉字数词用于电话号码、日期、价格等"
+        },
+        {
+          "id": "n4",
+          "korean": "육, 칠, 팔, 구, 십",
+          "pronunciation": "yuk, chil, pal, gu, sip",
+          "chinese": "六、七、八、九、十（汉字数词）",
+          "english": "Six, seven, eight, nine, ten (Sino-Korean)",
+          "note": null
+        },
+        {
+          "id": "n5",
+          "korean": "지금 몇 시예요?",
+          "pronunciation": "ji-geum myeot si-ye-yo",
+          "chinese": "现在几点了？",
+          "english": "What time is it now?",
+          "note": null
+        },
+        {
+          "id": "n6",
+          "korean": "오전 / 오후",
+          "pronunciation": "o-jeon / o-hu",
+          "chinese": "上午 / 下午",
+          "english": "AM / PM",
+          "note": null
+        },
+        {
+          "id": "n7",
+          "korean": "월요일, 화요일, 수요일",
+          "pronunciation": "wol-yo-il, hwa-yo-il, su-yo-il",
+          "chinese": "星期一、星期二、星期三",
+          "english": "Monday, Tuesday, Wednesday",
+          "note": null
+        },
+        {
+          "id": "n8",
+          "korean": "목요일, 금요일, 토요일, 일요일",
+          "pronunciation": "mog-yo-il, geum-yo-il, to-yo-il, il-yo-il",
+          "chinese": "星期四、星期五、星期六、星期日",
+          "english": "Thursday, Friday, Saturday, Sunday",
+          "note": null
+        },
+        {
+          "id": "n9",
+          "korean": "오늘",
+          "pronunciation": "o-neul",
+          "chinese": "今天",
+          "english": "Today",
+          "note": null
+        },
+        {
+          "id": "n10",
+          "korean": "내일",
+          "pronunciation": "nae-il",
+          "chinese": "明天",
+          "english": "Tomorrow",
+          "note": null
+        },
+        {
+          "id": "n11",
+          "korean": "어제",
+          "pronunciation": "eo-je",
+          "chinese": "昨天",
+          "english": "Yesterday",
+          "note": null
+        },
+        {
+          "id": "n12",
+          "korean": "백 / 천 / 만",
+          "pronunciation": "baek / cheon / man",
+          "chinese": "百 / 千 / 万",
+          "english": "Hundred / Thousand / Ten thousand",
+          "note": "韩国货币单位是'원(won)'，万元≈50人民币"
+        },
+        {
+          "id": "n13",
+          "korean": "몇 시에 만나요?",
+          "pronunciation": "myeot si-e man-na-yo",
+          "chinese": "几点见面？",
+          "english": "What time shall we meet?",
+          "note": null
+        },
+        {
+          "id": "n14",
+          "korean": "삼십 분",
+          "pronunciation": "sam-sip bun",
+          "chinese": "三十分钟",
+          "english": "Thirty minutes",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "name": "社交聊天",
+      "icon": "person.2.fill",
+      "phrases": [
+        {
+          "id": "sc1",
+          "korean": "저는 중국 사람이에요",
+          "pronunciation": "jeo-neun jung-guk sa-ram-i-e-yo",
+          "chinese": "我是中国人",
+          "english": "I'm Chinese",
+          "note": null
+        },
+        {
+          "id": "sc2",
+          "korean": "이름이 뭐예요?",
+          "pronunciation": "i-reum-i mwo-ye-yo",
+          "chinese": "你叫什么名字？",
+          "english": "What is your name?",
+          "note": null
+        },
+        {
+          "id": "sc3",
+          "korean": "제 이름은 ○○○이에요",
+          "pronunciation": "je i-reum-eun ○○○-i-e-yo",
+          "chinese": "我的名字叫○○○",
+          "english": "My name is ○○○",
+          "note": null
+        },
+        {
+          "id": "sc4",
+          "korean": "한국은 처음이에요",
+          "pronunciation": "han-gug-eun cheo-eum-i-e-yo",
+          "chinese": "我第一次来韩国",
+          "english": "This is my first time in Korea",
+          "note": null
+        },
+        {
+          "id": "sc5",
+          "korean": "여행 왔어요",
+          "pronunciation": "yeo-haeng wa-sseo-yo",
+          "chinese": "我是来旅游的",
+          "english": "I came for travel",
+          "note": null
+        },
+        {
+          "id": "sc6",
+          "korean": "한국어를 조금 할 수 있어요",
+          "pronunciation": "han-gug-eo-reul jo-geum hal su i-sseo-yo",
+          "chinese": "我会说一点韩语",
+          "english": "I can speak a little Korean",
+          "note": null
+        },
+        {
+          "id": "sc7",
+          "korean": "한국이 정말 좋아요",
+          "pronunciation": "han-gug-i jeong-mal jo-a-yo",
+          "chinese": "我真的很喜欢韩国",
+          "english": "I really like Korea",
+          "note": "和韩国人聊天时的好话题"
+        },
+        {
+          "id": "sc8",
+          "korean": "멋있어요!",
+          "pronunciation": "meos-i-sseo-yo",
+          "chinese": "好帅！/ 好酷！",
+          "english": "That's cool!",
+          "note": null
+        },
+        {
+          "id": "sc9",
+          "korean": "예뻐요!",
+          "pronunciation": "ye-ppeo-yo",
+          "chinese": "好漂亮！",
+          "english": "It's pretty! / You're pretty!",
+          "note": null
+        },
+        {
+          "id": "sc10",
+          "korean": "같이 사진 찍어도 돼요?",
+          "pronunciation": "ga-chi sa-jin jjig-eo-do dwae-yo",
+          "chinese": "可以一起拍照吗？",
+          "english": "Can we take a photo together?",
+          "note": null
+        },
+        {
+          "id": "sc11",
+          "korean": "연락처를 교환할 수 있어요?",
+          "pronunciation": "yeol-lak-cheo-reul gyo-hwan-hal su i-sseo-yo",
+          "chinese": "可以交换联系方式吗？",
+          "english": "Can we exchange contact info?",
+          "note": "韩国人常用KakaoTalk"
+        },
+        {
+          "id": "sc12",
+          "korean": "카카오톡 아이디 있어요?",
+          "pronunciation": "ka-ka-o-tok a-i-di i-sseo-yo",
+          "chinese": "你有KakaoTalk吗？",
+          "english": "Do you have KakaoTalk?",
+          "note": "KakaoTalk是韩国最常用的聊天软件"
+        },
+        {
+          "id": "sc13",
+          "korean": "나이가 어떻게 되세요?",
+          "pronunciation": "na-i-ga eo-tteo-ke doe-se-yo",
+          "chinese": "您多大年纪了？",
+          "english": "How old are you?",
+          "note": "在韩国，年龄决定说话方式，所以经常被问到"
+        },
+        {
+          "id": "sc14",
+          "korean": "정말요?",
+          "pronunciation": "jeong-mal-yo",
+          "chinese": "真的吗？",
+          "english": "Really?",
+          "note": null
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "d1",
+      "title": "餐厅点餐",
+      "icon": "fork.knife.circle.fill",
+      "scene": "你走进一家韩国烤肉店，准备点餐。",
+      "lines": [
+        {
+          "id": "d1l1",
+          "speaker": "店员",
+          "korean": "어서오세요! 몇 분이세요?",
+          "pronunciation": "eo-seo-o-se-yo! myeot bun-i-se-yo?",
+          "chinese": "欢迎光临！请问几位？"
+        },
+        {
+          "id": "d1l2",
+          "speaker": "你",
+          "korean": "두 명이요.",
+          "pronunciation": "du myeong-i-yo.",
+          "chinese": "两个人。"
+        },
+        {
+          "id": "d1l3",
+          "speaker": "店员",
+          "korean": "이쪽으로 앉으세요. 메뉴판 여기 있습니다.",
+          "pronunciation": "i-jjog-eu-ro an-jeu-se-yo. me-nyu-pan yeo-gi it-seum-ni-da.",
+          "chinese": "请这边坐。菜单在这里。"
+        },
+        {
+          "id": "d1l4",
+          "speaker": "你",
+          "korean": "삼겹살 이인분하고 된장찌개 하나 주세요.",
+          "pronunciation": "sam-gyeop-sal i-in-bun-ha-go doen-jang-jji-gae ha-na ju-se-yo.",
+          "chinese": "请给我两份五花肉和一份大酱汤。"
+        },
+        {
+          "id": "d1l5",
+          "speaker": "店员",
+          "korean": "음료는 뭐 드릴까요?",
+          "pronunciation": "eum-ryo-neun mwo deu-ril-kka-yo?",
+          "chinese": "要喝什么饮料？"
+        },
+        {
+          "id": "d1l6",
+          "speaker": "你",
+          "korean": "콜라 두 개 주세요.",
+          "pronunciation": "kol-la du gae ju-se-yo.",
+          "chinese": "请给我两瓶可乐。"
+        },
+        {
+          "id": "d1l7",
+          "speaker": "你",
+          "korean": "계산해 주세요.",
+          "pronunciation": "gye-san-hae ju-se-yo.",
+          "chinese": "请结账。"
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "title": "问路",
+      "icon": "map.circle.fill",
+      "scene": "你在首尔街头想去景福宫，向路人问路。",
+      "lines": [
+        {
+          "id": "d2l1",
+          "speaker": "你",
+          "korean": "실례합니다. 경복궁이 어디예요?",
+          "pronunciation": "sil-lye-ham-ni-da. gyeong-bok-gung-i eo-di-ye-yo?",
+          "chinese": "打扰一下，景福宫在哪里？"
+        },
+        {
+          "id": "d2l2",
+          "speaker": "路人",
+          "korean": "여기서 직진하면 지하철역이 있어요.",
+          "pronunciation": "yeo-gi-seo jik-jin-ha-myeon ji-ha-cheol-yeog-i i-sseo-yo.",
+          "chinese": "从这里直走就有地铁站。"
+        },
+        {
+          "id": "d2l3",
+          "speaker": "路人",
+          "korean": "3호선 타고 경복궁역에서 내리세요.",
+          "pronunciation": "sam-ho-seon ta-go gyeong-bok-gung-yeog-e-seo nae-ri-se-yo.",
+          "chinese": "坐3号线在景福宫站下车。"
+        },
+        {
+          "id": "d2l4",
+          "speaker": "你",
+          "korean": "몇 번 출구로 나가야 해요?",
+          "pronunciation": "myeot beon chul-gu-ro na-ga-ya hae-yo?",
+          "chinese": "从几号出口出去？"
+        },
+        {
+          "id": "d2l5",
+          "speaker": "路人",
+          "korean": "5번 출구로 나가시면 바로 보여요.",
+          "pronunciation": "o-beon chul-gu-ro na-ga-si-myeon ba-ro bo-yeo-yo.",
+          "chinese": "从5号出口出去就能看到了。"
+        },
+        {
+          "id": "d2l6",
+          "speaker": "你",
+          "korean": "감사합니다!",
+          "pronunciation": "gam-sa-ham-ni-da!",
+          "chinese": "谢谢！"
+        }
+      ]
+    },
+    {
+      "id": "d3",
+      "title": "酒店入住",
+      "icon": "building.fill",
+      "scene": "你到达酒店前台，准备办理入住手续。",
+      "lines": [
+        {
+          "id": "d3l1",
+          "speaker": "你",
+          "korean": "안녕하세요, 체크인 하고 싶어요.",
+          "pronunciation": "an-nyeong-ha-se-yo, che-keu-in ha-go sip-eo-yo.",
+          "chinese": "你好，我想办理入住。"
+        },
+        {
+          "id": "d3l2",
+          "speaker": "前台",
+          "korean": "네, 예약하셨어요?",
+          "pronunciation": "ne, ye-ya-ka-syeo-sseo-yo?",
+          "chinese": "好的，您预约了吗？"
+        },
+        {
+          "id": "d3l3",
+          "speaker": "你",
+          "korean": "네, 예약했어요. 이름은 왕밍입니다.",
+          "pronunciation": "ne, ye-ya-kae-sseo-yo. i-reum-eun wang-ming-im-ni-da.",
+          "chinese": "是的，我预约了。名字是王明。"
+        },
+        {
+          "id": "d3l4",
+          "speaker": "前台",
+          "korean": "확인됐습니다. 여권 좀 보여주세요.",
+          "pronunciation": "hwag-in-dwaet-seum-ni-da. yeo-gwon jom bo-yeo-ju-se-yo.",
+          "chinese": "确认了。请出示一下护照。"
+        },
+        {
+          "id": "d3l5",
+          "speaker": "前台",
+          "korean": "방은 5층 502호입니다. 여기 카드 키예요.",
+          "pronunciation": "bang-eun o-cheung o-baek-i-ho-im-ni-da. yeo-gi ka-deu ki-ye-yo.",
+          "chinese": "您的房间是5楼502号。这是房卡。"
+        },
+        {
+          "id": "d3l6",
+          "speaker": "你",
+          "korean": "와이파이 비밀번호가 뭐예요?",
+          "pronunciation": "wa-i-pa-i bi-mil-beon-ho-ga mwo-ye-yo?",
+          "chinese": "WiFi密码是什么？"
+        },
+        {
+          "id": "d3l7",
+          "speaker": "前台",
+          "korean": "비밀번호는 방 번호와 같습니다. 0502예요.",
+          "pronunciation": "bi-mil-beon-ho-neun bang beon-ho-wa gat-seum-ni-da. gong-o-gong-i-ye-yo.",
+          "chinese": "密码和房号一样，是0502。"
+        },
+        {
+          "id": "d3l8",
+          "speaker": "你",
+          "korean": "조식은 몇 시부터예요?",
+          "pronunciation": "jo-sig-eun myeot si-bu-teo-ye-yo?",
+          "chinese": "早餐从几点开始？"
+        },
+        {
+          "id": "d3l9",
+          "speaker": "前台",
+          "korean": "오전 7시부터 10시까지입니다. 1층 식당에서 드시면 돼요.",
+          "pronunciation": "o-jeon il-gop-si-bu-teo yeol-si-kka-ji-im-ni-da. il-cheung sik-dang-e-seo deu-si-myeon dwae-yo.",
+          "chinese": "上午7点到10点。在1楼餐厅用餐就可以了。"
+        },
+        {
+          "id": "d3l10",
+          "speaker": "你",
+          "korean": "감사합니다!",
+          "pronunciation": "gam-sa-ham-ni-da!",
+          "chinese": "谢谢！"
+        }
+      ]
+    },
+    {
+      "id": "d4",
+      "title": "咖啡厅点单",
+      "icon": "cup.and.saucer.fill",
+      "scene": "你走进一家韩国咖啡厅，准备点咖啡和甜品。",
+      "lines": [
+        {
+          "id": "d4l1",
+          "speaker": "店员",
+          "korean": "어서오세요! 주문하시겠어요?",
+          "pronunciation": "eo-seo-o-se-yo! ju-mun-ha-si-ge-sseo-yo?",
+          "chinese": "欢迎光临！要点单吗？"
+        },
+        {
+          "id": "d4l2",
+          "speaker": "你",
+          "korean": "아이스 아메리카노 한 잔이랑 카페라떼 한 잔 주세요.",
+          "pronunciation": "a-i-seu a-me-ri-ka-no han jan-i-rang ka-pe-ra-tte han jan ju-se-yo.",
+          "chinese": "请给我一杯冰美式和一杯拿铁。"
+        },
+        {
+          "id": "d4l3",
+          "speaker": "店员",
+          "korean": "라떼는 따뜻한 걸로 드릴까요?",
+          "pronunciation": "la-tte-neun tta-tteu-tan geol-lo deu-ril-kka-yo?",
+          "chinese": "拿铁要热的吗？"
+        },
+        {
+          "id": "d4l4",
+          "speaker": "你",
+          "korean": "네, 따뜻한 걸로 주세요. 그리고 치즈케이크도 하나 주세요.",
+          "pronunciation": "ne, tta-tteu-tan geol-lo ju-se-yo. geu-ri-go chi-jeu-ke-i-keu-do ha-na ju-se-yo.",
+          "chinese": "是的，请给我热的。然后也请给我一块芝士蛋糕。"
+        },
+        {
+          "id": "d4l5",
+          "speaker": "店员",
+          "korean": "사이즈는 어떻게 하시겠어요? 레귤러, 라지 있어요.",
+          "pronunciation": "sa-i-jeu-neun eo-tteo-ke ha-si-ge-sseo-yo? re-gyu-leo, la-ji i-sseo-yo.",
+          "chinese": "要什么尺寸？有普通和大杯。"
+        },
+        {
+          "id": "d4l6",
+          "speaker": "你",
+          "korean": "둘 다 레귤러로 주세요.",
+          "pronunciation": "dul da re-gyu-leo-ro ju-se-yo.",
+          "chinese": "两杯都要普通杯。"
+        },
+        {
+          "id": "d4l7",
+          "speaker": "店员",
+          "korean": "매장에서 드시나요, 가져가시나요?",
+          "pronunciation": "mae-jang-e-seo deu-si-na-yo, ga-jyeo-ga-si-na-yo?",
+          "chinese": "在店里喝还是带走？"
+        },
+        {
+          "id": "d4l8",
+          "speaker": "你",
+          "korean": "여기서 먹을 거예요.",
+          "pronunciation": "yeo-gi-seo meog-eul geo-ye-yo.",
+          "chinese": "在这里喝。"
+        },
+        {
+          "id": "d4l9",
+          "speaker": "店员",
+          "korean": "총 만 사천 원입니다. 카드로 하시겠어요?",
+          "pronunciation": "chong man sa-cheon won-im-ni-da. ka-deu-ro ha-si-ge-sseo-yo?",
+          "chinese": "一共14000韩元。刷卡吗？"
+        },
+        {
+          "id": "d4l10",
+          "speaker": "你",
+          "korean": "네, 카드로 할게요.",
+          "pronunciation": "ne, ka-deu-ro hal-ge-yo.",
+          "chinese": "好的，刷卡。"
+        }
+      ]
+    },
+    {
+      "id": "d5",
+      "title": "出租车",
+      "icon": "car.fill",
+      "scene": "你在首尔街头打出租车去酒店。",
+      "lines": [
+        {
+          "id": "d5l1",
+          "speaker": "你",
+          "korean": "안녕하세요, 이 주소로 가주세요.",
+          "pronunciation": "an-nyeong-ha-se-yo, i ju-so-ro ga-ju-se-yo.",
+          "chinese": "你好，请去这个地址。"
+        },
+        {
+          "id": "d5l2",
+          "speaker": "司机",
+          "korean": "네, 알겠습니다. 어디쯤이에요?",
+          "pronunciation": "ne, al-get-seum-ni-da. eo-di-jjeum-i-e-yo?",
+          "chinese": "好的，大概在哪里？"
+        },
+        {
+          "id": "d5l3",
+          "speaker": "你",
+          "korean": "명동 근처 호텔이에요.",
+          "pronunciation": "myeong-dong geun-cheo ho-tel-i-e-yo.",
+          "chinese": "是明洞附近的酒店。"
+        },
+        {
+          "id": "d5l4",
+          "speaker": "司机",
+          "korean": "지금 길이 좀 막히는데, 30분 정도 걸릴 거예요.",
+          "pronunciation": "ji-geum gil-i jom ma-ki-neun-de, sam-sip-bun jeong-do geol-lil geo-ye-yo.",
+          "chinese": "现在有点堵车，大概要30分钟。"
+        },
+        {
+          "id": "d5l5",
+          "speaker": "你",
+          "korean": "네, 괜찮아요.",
+          "pronunciation": "ne, gwaen-cha-na-yo.",
+          "chinese": "好的，没关系。"
+        },
+        {
+          "id": "d5l6",
+          "speaker": "你",
+          "korean": "여기서 내려주세요.",
+          "pronunciation": "yeo-gi-seo nae-ryeo-ju-se-yo.",
+          "chinese": "请在这里停车。"
+        },
+        {
+          "id": "d5l7",
+          "speaker": "司机",
+          "korean": "만 이천 원입니다.",
+          "pronunciation": "man i-cheon won-im-ni-da.",
+          "chinese": "12000韩元。"
+        },
+        {
+          "id": "d5l8",
+          "speaker": "你",
+          "korean": "카드로 결제해도 돼요?",
+          "pronunciation": "ka-deu-ro gyeol-je-hae-do dwae-yo?",
+          "chinese": "可以刷卡吗？"
+        },
+        {
+          "id": "d5l9",
+          "speaker": "司机",
+          "korean": "네, 여기 대주세요.",
+          "pronunciation": "ne, yeo-gi dae-ju-se-yo.",
+          "chinese": "可以，请放在这里刷。"
+        },
+        {
+          "id": "d5l10",
+          "speaker": "你",
+          "korean": "감사합니다. 안녕히 가세요!",
+          "pronunciation": "gam-sa-ham-ni-da. an-nyeong-hi ga-se-yo!",
+          "chinese": "谢谢，再见！"
+        }
+      ]
+    },
+    {
+      "id": "d6",
+      "title": "购物砍价",
+      "icon": "wonsign.circle.fill",
+      "scene": "你在南大门市场购物，想买一件衣服。",
+      "lines": [
+        {
+          "id": "d6l1",
+          "speaker": "你",
+          "korean": "이거 얼마예요?",
+          "pronunciation": "i-geo eol-ma-ye-yo?",
+          "chinese": "这个多少钱？"
+        },
+        {
+          "id": "d6l2",
+          "speaker": "店员",
+          "korean": "삼만 원이에요.",
+          "pronunciation": "sam-man won-i-e-yo.",
+          "chinese": "30000韩元。"
+        },
+        {
+          "id": "d6l3",
+          "speaker": "你",
+          "korean": "너무 비싸요. 좀 깎아주세요.",
+          "pronunciation": "neo-mu bi-ssa-yo. jom kkakk-a-ju-se-yo.",
+          "chinese": "太贵了。请便宜一点。"
+        },
+        {
+          "id": "d6l4",
+          "speaker": "店员",
+          "korean": "그러면 이만 오천 원에 드릴게요.",
+          "pronunciation": "geu-reo-myeon i-man o-cheon won-e deu-ril-ge-yo.",
+          "chinese": "那给你25000韩元吧。"
+        },
+        {
+          "id": "d6l5",
+          "speaker": "你",
+          "korean": "두 개 사면 더 싸게 해줄 수 있어요?",
+          "pronunciation": "du gae sa-myeon deo ssa-ge hae-jul su i-sseo-yo?",
+          "chinese": "买两个可以更便宜吗？"
+        },
+        {
+          "id": "d6l6",
+          "speaker": "店员",
+          "korean": "두 개면 사만 원에 해드릴게요.",
+          "pronunciation": "du gae-myeon sa-man won-e hae-deu-ril-ge-yo.",
+          "chinese": "两个的话给你40000韩元。"
+        },
+        {
+          "id": "d6l7",
+          "speaker": "你",
+          "korean": "좋아요, 그러면 두 개 살게요. 카드 돼요?",
+          "pronunciation": "jo-a-yo, geu-reo-myeon du gae sal-ge-yo. ka-deu dwae-yo?",
+          "chinese": "好的，那我买两个。可以刷卡吗？"
+        },
+        {
+          "id": "d6l8",
+          "speaker": "店员",
+          "korean": "현금이면 더 싸게 해드릴 수 있는데요.",
+          "pronunciation": "hyeon-geum-i-myeon deo ssa-ge hae-deu-ril su in-neun-de-yo.",
+          "chinese": "用现金的话可以更便宜。"
+        },
+        {
+          "id": "d6l9",
+          "speaker": "你",
+          "korean": "그러면 현금으로 할게요. 봉투 주세요.",
+          "pronunciation": "geu-reo-myeon hyeon-geum-eu-ro hal-ge-yo. bong-tu ju-se-yo.",
+          "chinese": "那用现金吧。请给我袋子。"
+        },
+        {
+          "id": "d6l10",
+          "speaker": "店员",
+          "korean": "감사합니다. 또 오세요!",
+          "pronunciation": "gam-sa-ham-ni-da. tto o-se-yo!",
+          "chinese": "谢谢，欢迎再来！"
+        }
+      ]
+    },
+    {
+      "id": "d7",
+      "title": "看医生",
+      "icon": "cross.case.fill",
+      "scene": "你感觉身体不舒服，去了医院看病。",
+      "lines": [
+        {
+          "id": "d7l1",
+          "speaker": "前台",
+          "korean": "어떻게 오셨어요?",
+          "pronunciation": "eo-tteo-ke o-syeo-sseo-yo?",
+          "chinese": "您怎么来了？（有什么事？）"
+        },
+        {
+          "id": "d7l2",
+          "speaker": "你",
+          "korean": "몸이 안 좋아서 왔어요. 외국인인데 진료 받을 수 있어요?",
+          "pronunciation": "mom-i an jo-a-seo wa-sseo-yo. oe-gug-in-in-de jil-lyo ba-deul su i-sseo-yo?",
+          "chinese": "我身体不舒服。我是外国人，可以看病吗？"
+        },
+        {
+          "id": "d7l3",
+          "speaker": "前台",
+          "korean": "네, 여권 좀 보여주세요. 보험 있으세요?",
+          "pronunciation": "ne, yeo-gwon jom bo-yeo-ju-se-yo. bo-heom i-sseu-se-yo?",
+          "chinese": "可以的，请出示护照。有保险吗？"
+        },
+        {
+          "id": "d7l4",
+          "speaker": "你",
+          "korean": "여행자 보험이 있어요.",
+          "pronunciation": "yeo-haeng-ja bo-heom-i i-sseo-yo.",
+          "chinese": "我有旅行保险。"
+        },
+        {
+          "id": "d7l5",
+          "speaker": "医生",
+          "korean": "어디가 아프세요?",
+          "pronunciation": "eo-di-ga a-peu-se-yo?",
+          "chinese": "哪里不舒服？"
+        },
+        {
+          "id": "d7l6",
+          "speaker": "你",
+          "korean": "어제부터 배가 아프고 열이 나요.",
+          "pronunciation": "eo-je-bu-teo bae-ga a-peu-go yeol-i na-yo.",
+          "chinese": "从昨天开始肚子疼，还发烧。"
+        },
+        {
+          "id": "d7l7",
+          "speaker": "医生",
+          "korean": "언제부터 아팠어요? 어제 뭘 드셨어요?",
+          "pronunciation": "eon-je-bu-teo a-pa-sseo-yo? eo-je mwol deu-syeo-sseo-yo?",
+          "chinese": "从什么时候开始不舒服的？昨天吃了什么？"
+        },
+        {
+          "id": "d7l8",
+          "speaker": "你",
+          "korean": "어제 저녁에 길거리 음식을 먹었어요.",
+          "pronunciation": "eo-je jeo-nyeog-e gil-geo-ri eum-sig-eul meog-eo-sseo-yo.",
+          "chinese": "昨天晚上吃了路边摊的食物。"
+        },
+        {
+          "id": "d7l9",
+          "speaker": "医生",
+          "korean": "급성 장염인 것 같아요. 약을 처방해 드릴게요. 이틀 동안 죽만 드세요.",
+          "pronunciation": "geup-seong jang-yeom-in geot ga-ta-yo. yag-eul cheo-bang-hae deu-ril-ge-yo. i-teul dong-an juk-man deu-se-yo.",
+          "chinese": "看起来是急性肠炎。我给您开药。两天内只吃粥。"
+        },
+        {
+          "id": "d7l10",
+          "speaker": "你",
+          "korean": "감사합니다. 약은 어디서 받아요?",
+          "pronunciation": "gam-sa-ham-ni-da. yag-eun eo-di-seo ba-da-yo?",
+          "chinese": "谢谢。药在哪里取？"
+        },
+        {
+          "id": "d7l11",
+          "speaker": "医生",
+          "korean": "1층 약국에서 처방전 주시면 돼요.",
+          "pronunciation": "il-cheung yak-gug-e-seo cheo-bang-jeon ju-si-myeon dwae-yo.",
+          "chinese": "在1楼药店出示处方就可以了。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Xcode — user-specific / local state (不要进仓库)
+xcuserdata/
+*.xcuserstate
+*.xcuserdatad/
+
+# Xcode — build artifacts
+DerivedData/
+build/
+*.ipa
+*.dSYM
+*.dSYM.zip
+
+# Swift Package Manager
+.build/
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc
+
+# CocoaPods (若以后用到)
+Pods/
+
+# Carthage (若以后用到)
+Carthage/Build/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# 环境 / 密钥（勿提交）
+.env
+.env.*
+*.pem
+
+# 备份与临时文件
+*~
+*.swp
+*.orig
