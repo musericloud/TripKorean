@@ -26,10 +26,20 @@ struct PhotoTranslateView: View {
         isKoreanToChinese ? .init(identifier: "zh-Hans") : .init(identifier: "ko")
     }
 
+    private var recognizedSpeakLanguage: String {
+        isKoreanToChinese ? "ko-KR" : "zh-CN"
+    }
+
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                directionToggle
+                TranslationDirectionToggle(isKoreanToChinese: $isKoreanToChinese) {
+                    translatedText = ""
+                    configuration = nil
+                    if !recognizedText.isEmpty {
+                        translateText()
+                    }
+                }
                 imageSection
 
                 if !recognizedText.isEmpty {
@@ -37,7 +47,15 @@ struct PhotoTranslateView: View {
                 }
 
                 if !translatedText.isEmpty {
-                    translationSection
+                    TranslationResultPanel(
+                        title: "翻译结果",
+                        translatedText: translatedText,
+                        emptyPlaceholder: nil,
+                        resultSpeakLanguage: isKoreanToChinese ? "zh-CN" : "ko-KR",
+                        speechService: speechService,
+                        isFavorited: isFavorited,
+                        onFavorite: saveFavorite
+                    )
                 }
             }
             .padding()
@@ -78,40 +96,6 @@ struct PhotoTranslateView: View {
         }
     }
 
-    // MARK: - Direction Toggle
-
-    private var directionToggle: some View {
-        HStack {
-            Text(isKoreanToChinese ? "韩语" : "中文")
-                .font(.title3)
-                .fontWeight(.semibold)
-                .frame(maxWidth: .infinity)
-
-            Button {
-                withAnimation {
-                    isKoreanToChinese.toggle()
-                    translatedText = ""
-                    configuration = nil
-                    if !recognizedText.isEmpty {
-                        translateText()
-                    }
-                }
-            } label: {
-                Image(systemName: "arrow.left.arrow.right.circle.fill")
-                    .font(.title)
-            }
-
-            Text(isKoreanToChinese ? "中文" : "韩语")
-                .font(.title3)
-                .fontWeight(.semibold)
-                .frame(maxWidth: .infinity)
-        }
-        .padding()
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
-    }
-
-    // MARK: - Image Section
-
     private var imageSection: some View {
         VStack(spacing: 12) {
             if let image = selectedImage {
@@ -150,8 +134,6 @@ struct PhotoTranslateView: View {
         }
     }
 
-    // MARK: - Recognized Text
-
     private var recognizedSection: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("识别的文字")
@@ -165,94 +147,15 @@ struct PhotoTranslateView: View {
                 .padding()
                 .background(Color(.systemGray6), in: RoundedRectangle(cornerRadius: 12))
 
-            HStack {
-                Button {
-                    let lang = isKoreanToChinese ? "ko-KR" : "zh-CN"
-                    speechService.toggleSpeak(recognizedText, language: lang)
-                } label: {
-                    Label(
-                        speechService.isSpeaking(recognizedText) ? "停止" : "朗读",
-                        systemImage: speechService.isSpeaking(recognizedText) ? "stop.fill" : "speaker.wave.2.fill"
-                    )
-                }
-
-                Spacer()
-
-                Button {
-                    UIPasteboard.general.string = recognizedText
-                } label: {
-                    Label("复制", systemImage: "doc.on.doc")
-                }
-
-                Spacer()
-
-                Button {
-                    translateText()
-                } label: {
-                    if isTranslating {
-                        ProgressView()
-                            .padding(.horizontal, 8)
-                    } else {
-                        Label("翻译", systemImage: "arrow.right.circle.fill")
-                            .fontWeight(.semibold)
-                    }
-                }
-                .buttonStyle(.borderedProminent)
-                .disabled(isTranslating)
-            }
+            RecognizedTextActionsRow(
+                text: recognizedText,
+                speakLanguage: recognizedSpeakLanguage,
+                speechService: speechService,
+                isTranslating: $isTranslating,
+                onTranslate: translateText
+            )
         }
     }
-
-    // MARK: - Translation Result
-
-    private var translationSection: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("翻译结果")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-
-            Text(translatedText)
-                .font(.title3)
-                .textSelection(.enabled)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-                .background(Color(.systemGray6), in: RoundedRectangle(cornerRadius: 12))
-
-            HStack {
-                Button {
-                    let lang = isKoreanToChinese ? "zh-CN" : "ko-KR"
-                    speechService.toggleSpeak(translatedText, language: lang)
-                } label: {
-                    Label(
-                        speechService.isSpeaking(translatedText) ? "停止" : "朗读",
-                        systemImage: speechService.isSpeaking(translatedText) ? "stop.fill" : "speaker.wave.2.fill"
-                    )
-                }
-
-                Spacer()
-
-                Button {
-                    UIPasteboard.general.string = translatedText
-                } label: {
-                    Label("复制", systemImage: "doc.on.doc")
-                }
-
-                Spacer()
-
-                Button {
-                    saveFavorite()
-                } label: {
-                    Label(
-                        isFavorited ? "已收藏" : "收藏",
-                        systemImage: isFavorited ? "star.fill" : "star"
-                    )
-                    .foregroundStyle(isFavorited ? .yellow : .blue)
-                }
-            }
-        }
-    }
-
-    // MARK: - Helpers
 
     private var koreanText: String {
         isKoreanToChinese ? recognizedText : translatedText
@@ -274,8 +177,6 @@ struct PhotoTranslateView: View {
             withAnimation { showSavedToast = false }
         }
     }
-
-    // MARK: - OCR
 
     private func recognizeText() {
         guard let image = selectedImage, let cgImage = image.cgImage else { return }
@@ -312,8 +213,6 @@ struct PhotoTranslateView: View {
             .compactMap { $0.topCandidates(1).first?.string }
             .joined(separator: "\n")
     }
-
-    // MARK: - Translation
 
     private func translateText() {
         guard !recognizedText.isEmpty else { return }

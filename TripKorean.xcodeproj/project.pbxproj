@@ -19,6 +19,7 @@
 		6540B297FFD6CA2ADE117470 /* PhraseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7C5F08A138FF7A0494C7F /* PhraseStore.swift */; };
 		656FCCA63DA0CA86193BB9AC /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673BB165E45752AB77C7575B /* Phrase.swift */; };
 		6C32E3B1238FA06E1D070813 /* SpeechRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC117004CF3F83D3424329E /* SpeechRecognitionService.swift */; };
+		827460DFBEB431CDF61AD364 /* TranslationSharedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D54400F6544ECC134A2A9 /* TranslationSharedViews.swift */; };
 		8F2EA8266D12E2C79A8D81EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11F77E260CD35FD3C2555CD2 /* Assets.xcassets */; };
 		CDC2EE000DC7A22A7D4E2A26 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99222F9E97043E91A7EA9B55 /* Favorite.swift */; };
 		D52471A62F947BB8195C1400 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A2BF90DF911EB40E7E2DC7 /* ContentView.swift */; };
@@ -30,7 +31,7 @@
 		11F77E260CD35FD3C2555CD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15DF86063B6AA182EF1AECED /* FavoritesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStore.swift; sourceTree = "<group>"; };
 		1E67E315B707747B9A66F428 /* PhotoTranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTranslateView.swift; sourceTree = "<group>"; };
-		44C3E70079728BEC209F87B6 /* TripKorean.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripKorean.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		44C3E70079728BEC209F87B6 /* TripKorean.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TripKorean.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		673BB165E45752AB77C7575B /* Phrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
 		6BC117004CF3F83D3424329E /* SpeechRecognitionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionService.swift; sourceTree = "<group>"; };
 		7D2ED71611E27117894255E7 /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		D4FCAEF65B6282BD0C84F49C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E649EA37C99C2B25E3A5312B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		ECB7C5F08A138FF7A0494C7F /* PhraseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseStore.swift; sourceTree = "<group>"; };
+		FA0D54400F6544ECC134A2A9 /* TranslationSharedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationSharedViews.swift; sourceTree = "<group>"; };
 		FB18F30386EBEF7D643A4183 /* DialogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				C67EEA8F3D0142FD164A17FC /* PhrasesView.swift */,
 				D4FCAEF65B6282BD0C84F49C /* SettingsView.swift */,
 				7D2ED71611E27117894255E7 /* TranslateView.swift */,
+				FA0D54400F6544ECC134A2A9 /* TranslationSharedViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,6 +152,8 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+				};
 			};
 			buildConfigurationList = 929B44E3EADDA7272B05FAD8 /* Build configuration list for PBXProject "TripKorean" */;
 			developmentRegion = en;
@@ -200,6 +205,7 @@
 				6C32E3B1238FA06E1D070813 /* SpeechRecognitionService.swift in Sources */,
 				29A9081ED5FD1FD151F07E4A /* SpeechService.swift in Sources */,
 				1C7ADEE662C9B4A2DA51B0ED /* TranslateView.swift in Sources */,
+				827460DFBEB431CDF61AD364 /* TranslationSharedViews.swift in Sources */,
 				108F5E300A5799CE15E4B789 /* TripKoreanApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,7 +342,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = VX78M2QPJX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "TripKorean needs camera access to scan and translate Korean text on signs and menus.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TripKorean needs microphone access for voice input and speech recognition.";
@@ -363,7 +368,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = VX78M2QPJX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "TripKorean needs camera access to scan and translate Korean text on signs and menus.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TripKorean needs microphone access for voice input and speech recognition.";

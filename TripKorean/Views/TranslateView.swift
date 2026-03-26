@@ -30,12 +30,24 @@ struct TranslateView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                directionToggle
+                TranslationDirectionToggle(isKoreanToChinese: $isKoreanToChinese) {
+                    inputText = ""
+                    translatedText = ""
+                    configuration = nil
+                }
 
                 VStack(spacing: 16) {
                     inputSection
                     voiceInputButton
-                    translationResult
+                    TranslationResultPanel(
+                        title: "翻译结果",
+                        translatedText: translatedText,
+                        emptyPlaceholder: "输入文本或按住说话",
+                        resultSpeakLanguage: isKoreanToChinese ? "zh-CN" : "ko-KR",
+                        speechService: speechService,
+                        isFavorited: isFavorited,
+                        onFavorite: saveFavorite
+                    )
                 }
                 .padding()
 
@@ -86,34 +98,6 @@ struct TranslateView: View {
             isRecording = false
             voiceError = message
         }
-    }
-
-    private var directionToggle: some View {
-        HStack {
-            Text(isKoreanToChinese ? "韩语" : "中文")
-                .font(.title3)
-                .fontWeight(.semibold)
-                .frame(maxWidth: .infinity)
-
-            Button {
-                withAnimation {
-                    isKoreanToChinese.toggle()
-                    inputText = ""
-                    translatedText = ""
-                    configuration = nil
-                }
-            } label: {
-                Image(systemName: "arrow.left.arrow.right.circle.fill")
-                    .font(.title)
-            }
-
-            Text(isKoreanToChinese ? "中文" : "韩语")
-                .font(.title3)
-                .fontWeight(.semibold)
-                .frame(maxWidth: .infinity)
-        }
-        .padding()
-        .background(.ultraThinMaterial)
     }
 
     private var inputSection: some View {
@@ -194,17 +178,14 @@ struct TranslateView: View {
                     RoundedRectangle(cornerRadius: 16)
                         .stroke(isRecording ? Color.red.opacity(0.3) : Color.blue.opacity(0.2), lineWidth: 1.5)
                 )
+                .contentShape(RoundedRectangle(cornerRadius: 16))
                 .gesture(
                     DragGesture(minimumDistance: 0)
                         .onChanged { _ in
-                            if !isRecording {
-                                isRecording = true
-                                voiceError = nil
-                                speechRecognition.startRecording(language: sourceLocaleId)
-                            }
+                            beginVoiceInputIfNeeded()
                         }
                         .onEnded { _ in
-                            speechRecognition.stopRecording()
+                            endVoiceInputIfNeeded()
                         }
                 )
 
@@ -216,58 +197,16 @@ struct TranslateView: View {
         }
     }
 
-    private var translationResult: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("翻译结果")
-                .font(.caption)
-                .foregroundStyle(.secondary)
+    private func beginVoiceInputIfNeeded() {
+        guard !isRecording else { return }
+        isRecording = true
+        voiceError = nil
+        speechRecognition.startRecording(language: sourceLocaleId)
+    }
 
-            if translatedText.isEmpty {
-                Text("输入文本或按住说话")
-                    .foregroundStyle(.tertiary)
-                    .frame(maxWidth: .infinity, minHeight: 80, alignment: .center)
-                    .background(Color(.systemGray6), in: RoundedRectangle(cornerRadius: 12))
-            } else {
-                Text(translatedText)
-                    .font(.title3)
-                    .textSelection(.enabled)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
-                    .background(Color(.systemGray6), in: RoundedRectangle(cornerRadius: 12))
-
-                HStack {
-                    Button {
-                        let lang = isKoreanToChinese ? "zh-CN" : "ko-KR"
-                        speechService.toggleSpeak(translatedText, language: lang)
-                    } label: {
-                        Label(
-                            speechService.isSpeaking(translatedText) ? "停止" : "朗读",
-                            systemImage: speechService.isSpeaking(translatedText) ? "stop.fill" : "speaker.wave.2.fill"
-                        )
-                    }
-
-                    Spacer()
-
-                    Button {
-                        UIPasteboard.general.string = translatedText
-                    } label: {
-                        Label("复制", systemImage: "doc.on.doc")
-                    }
-
-                    Spacer()
-
-                    Button {
-                        saveFavorite()
-                    } label: {
-                        Label(
-                            isFavorited ? "已收藏" : "收藏",
-                            systemImage: isFavorited ? "star.fill" : "star"
-                        )
-                        .foregroundStyle(isFavorited ? .yellow : .blue)
-                    }
-                }
-            }
-        }
+    private func endVoiceInputIfNeeded() {
+        guard isRecording else { return }
+        speechRecognition.stopRecording()
     }
 
     private var koreanText: String {

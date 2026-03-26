@@ -13,20 +13,19 @@ final class SpeechRecognitionService: @unchecked Sendable {
     private var authorized: Bool?
 
     func startRecording(language: String) {
-        if authorized == nil {
-            SFSpeechRecognizer.requestAuthorization { [weak self] status in
-                guard let self else { return }
-                self.authorized = (status == .authorized)
-                if status == .authorized {
-                    self.audioQueue.async { self.beginSession(language: language) }
-                } else {
-                    Task { @MainActor in self.onError?("请在设置中允许语音识别权限") }
-                }
-            }
-        } else if authorized == true {
+        if authorized == true {
             audioQueue.async { [self] in beginSession(language: language) }
-        } else {
-            Task { @MainActor in onError?("请在设置中允许语音识别权限") }
+            return
+        }
+
+        SFSpeechRecognizer.requestAuthorization { [weak self] status in
+            guard let self else { return }
+            self.authorized = (status == .authorized)
+            if status == .authorized {
+                self.audioQueue.async { self.beginSession(language: language) }
+            } else {
+                Task { @MainActor in self.onError?("请在设置中允许语音识别权限") }
+            }
         }
     }
 

@@ -39,7 +39,16 @@ struct FavoritesView: View {
 struct FavoriteRow: View {
     let favorite: Favorite
     let speechService: SpeechService
+    @AppStorage("showPronunciation") private var showPronunciation = true
     @State private var isExpanded = false
+
+    private static let favoriteDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        formatter.locale = Locale(identifier: "zh_CN")
+        return formatter
+    }()
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -67,9 +76,11 @@ struct FavoriteRow: View {
 
             if isExpanded {
                 VStack(alignment: .leading, spacing: 4) {
-                    Label(favorite.pronunciation, systemImage: "character.phonetic")
-                        .font(.subheadline)
-                        .foregroundStyle(.orange)
+                    if showPronunciation {
+                        Label(favorite.pronunciation, systemImage: "character.phonetic")
+                            .font(.subheadline)
+                            .foregroundStyle(.orange)
+                    }
 
                     Text(formatDate(favorite.createdAt))
                         .font(.caption2)
@@ -88,10 +99,6 @@ struct FavoriteRow: View {
     }
 
     private func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
-        formatter.locale = Locale(identifier: "zh_CN")
-        return "收藏于 \(formatter.string(from: date))"
+        "收藏于 \(Self.favoriteDateFormatter.string(from: date))"
     }
 }

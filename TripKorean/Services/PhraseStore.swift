@@ -1,22 +1,23 @@
 import Foundation
 
+@MainActor
 @Observable
-class PhraseStore {
+final class PhraseStore {
     var categories: [PhraseCategory] = []
     var dialogues: [Dialogue] = []
 
     init() {
-        loadPhrases()
-    }
-
-    private func loadPhrases() {
-        guard let url = Bundle.main.url(forResource: "phrases", withExtension: "json"),
-              let data = try? Data(contentsOf: url),
-              let phraseData = try? JSONDecoder().decode(PhraseData.self, from: data)
-        else {
-            return
+        Task {
+            guard let url = Bundle.main.url(forResource: "phrases", withExtension: "json") else { return }
+            let decoded: PhraseData? = await Task.detached(priority: .userInitiated) {
+                guard let data = try? Data(contentsOf: url),
+                      let phraseData = try? JSONDecoder().decode(PhraseData.self, from: data) else { return nil }
+                return phraseData
+            }.value
+            if let decoded {
+                categories = decoded.categories
+                dialogues = decoded.dialogues
+            }
         }
-        categories = phraseData.categories
-        dialogues = phraseData.dialogues
     }
 }

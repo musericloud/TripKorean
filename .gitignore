@@ -8,6 +8,8 @@
 xcuserdata/
 *.xcuserstate
 *.xcuserdatad/
+TripKorean.xcodeproj/**/xcuserdata/
+TripKorean.xcodeproj/project.xcworkspace/xcuserdata/
 
 # Xcode — build artifacts
 DerivedData/

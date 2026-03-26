@@ -100,6 +100,7 @@ struct DialogueDetailView: View {
 struct DialogueBubble: View {
     let line: DialogueLine
     let speechService: SpeechService
+    @AppStorage("showPronunciation") private var showPronunciation = true
     private var isUser: Bool { line.speaker == "你" }
 
     var body: some View {
@@ -125,9 +126,11 @@ struct DialogueBubble: View {
                         .buttonStyle(.plain)
                         .foregroundStyle(.white.opacity(0.8))
                     }
-                    Text(line.pronunciation)
-                        .font(.caption)
-                        .foregroundStyle(.white.opacity(0.7))
+                    if showPronunciation {
+                        Text(line.pronunciation)
+                            .font(.caption)
+                            .foregroundStyle(.white.opacity(0.7))
+                    }
                     Text(line.chinese)
                         .font(.caption)
                         .foregroundStyle(.white.opacity(0.85))

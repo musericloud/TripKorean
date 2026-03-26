@@ -1,7 +1,9 @@
 import Foundation
+import UIKit
 
+@MainActor
 @Observable
-class FavoritesStore {
+final class FavoritesStore {
     var favorites: [Favorite] = []
 
     private let fileURL: URL = {
@@ -9,8 +11,27 @@ class FavoritesStore {
         return docs.appendingPathComponent("favorites.json")
     }()
 
+    private var saveDebounceTask: Task<Void, Never>?
+    /// Observed from `deinit` (nonisolated); unregister must not touch other actor state.
+    nonisolated(unsafe) private var resignObserver: NSObjectProtocol?
+
     init() {
         load()
+        resignObserver = NotificationCenter.default.addObserver(
+            forName: UIApplication.willResignActiveNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            Task { @MainActor in
+                self?.flushPendingSave()
+            }
+        }
+    }
+
+    deinit {
+        if let resignObserver {
+            NotificationCenter.default.removeObserver(resignObserver)
+        }
     }
 
     func add(korean: String, chinese: String) {
@@ -19,21 +40,36 @@ class FavoritesStore {
         }
         let favorite = Favorite(korean: korean, chinese: chinese)
         favorites.insert(favorite, at: 0)
-        save()
+        scheduleSave()
     }
 
     func remove(_ favorite: Favorite) {
         favorites.removeAll { $0.id == favorite.id }
-        save()
+        scheduleSave()
     }
 
     func contains(korean: String, chinese: String) -> Bool {
         favorites.contains { $0.korean == korean && $0.chinese == chinese }
     }
 
-    private func save() {
+    private func scheduleSave() {
+        saveDebounceTask?.cancel()
+        saveDebounceTask = Task {
+            try? await Task.sleep(for: .milliseconds(300))
+            guard !Task.isCancelled else { return }
+            performSave()
+        }
+    }
+
+    private func flushPendingSave() {
+        saveDebounceTask?.cancel()
+        saveDebounceTask = nil
+        performSave()
+    }
+
+    private func performSave() {
         guard let data = try? JSONEncoder().encode(favorites) else { return }
-        try? data.write(to: fileURL)
+        try? data.write(to: fileURL, options: .atomic)
     }
 
     private func load() {

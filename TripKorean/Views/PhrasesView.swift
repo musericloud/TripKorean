@@ -37,6 +37,7 @@ struct PhraseListView: View {
 struct PhraseRow: View {
     let phrase: Phrase
     let speechService: SpeechService
+    @AppStorage("showPronunciation") private var showPronunciation = true
     @State private var isExpanded = false
 
     var body: some View {
@@ -65,9 +66,11 @@ struct PhraseRow: View {
 
             if isExpanded {
                 VStack(alignment: .leading, spacing: 4) {
-                    Label(phrase.pronunciation, systemImage: "character.phonetic")
-                        .font(.subheadline)
-                        .foregroundStyle(.orange)
+                    if showPronunciation {
+                        Label(phrase.pronunciation, systemImage: "character.phonetic")
+                            .font(.subheadline)
+                            .foregroundStyle(.orange)
+                    }
                     Text(phrase.english)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
