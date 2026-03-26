@@ -42,6 +42,15 @@ struct TranslateView: View {
                 Spacer()
             }
             .navigationTitle("翻译")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        PhotoTranslateView(speechService: speechService, favoritesStore: favoritesStore)
+                    } label: {
+                        Image(systemName: "camera.fill")
+                    }
+                }
+            }
             .overlay(alignment: .top) {
                 if showSavedToast {
                     Text("已收藏 ★")
@@ -82,7 +91,8 @@ struct TranslateView: View {
     private var directionToggle: some View {
         HStack {
             Text(isKoreanToChinese ? "韩语" : "中文")
-                .font(.headline)
+                .font(.title3)
+                .fontWeight(.semibold)
                 .frame(maxWidth: .infinity)
 
             Button {
@@ -94,11 +104,12 @@ struct TranslateView: View {
                 }
             } label: {
                 Image(systemName: "arrow.left.arrow.right.circle.fill")
-                    .font(.title2)
+                    .font(.title)
             }
 
             Text(isKoreanToChinese ? "中文" : "韩语")
-                .font(.headline)
+                .font(.title3)
+                .fontWeight(.semibold)
                 .frame(maxWidth: .infinity)
         }
         .padding()
@@ -123,10 +134,13 @@ struct TranslateView: View {
             HStack {
                 Button {
                     if !inputText.isEmpty {
-                        speechService.speak(inputText, language: sourceLocaleId)
+                        speechService.toggleSpeak(inputText, language: sourceLocaleId)
                     }
                 } label: {
-                    Label("朗读", systemImage: "speaker.wave.2.fill")
+                    Label(
+                        speechService.isSpeaking(inputText) ? "停止" : "朗读",
+                        systemImage: speechService.isSpeaking(inputText) ? "stop.fill" : "speaker.wave.2.fill"
+                    )
                 }
                 .disabled(inputText.isEmpty)
 
@@ -224,9 +238,12 @@ struct TranslateView: View {
                 HStack {
                     Button {
                         let lang = isKoreanToChinese ? "zh-CN" : "ko-KR"
-                        speechService.speak(translatedText, language: lang)
+                        speechService.toggleSpeak(translatedText, language: lang)
                     } label: {
-                        Label("朗读", systemImage: "speaker.wave.2.fill")
+                        Label(
+                            speechService.isSpeaking(translatedText) ? "停止" : "朗读",
+                            systemImage: speechService.isSpeaking(translatedText) ? "stop.fill" : "speaker.wave.2.fill"
+                        )
                     }
 
                     Spacer()

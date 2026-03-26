@@ -1,12 +1,21 @@
 import AVFoundation
 
 @Observable
-class SpeechService {
+class SpeechService: NSObject, AVSpeechSynthesizerDelegate, @unchecked Sendable {
     private let synthesizer = AVSpeechSynthesizer()
-    var isSpeaking = false
+    private(set) var currentText: String?
 
     private var speechRate: Float {
         Float(UserDefaults.standard.double(forKey: "speechRate")).clamped(to: 0.3...1.0)
+    }
+
+    override init() {
+        super.init()
+        synthesizer.delegate = self
+    }
+
+    func isSpeaking(_ text: String) -> Bool {
+        currentText == text
     }
 
     func speak(_ text: String, language: String = "ko-KR") {
@@ -17,13 +26,29 @@ class SpeechService {
         utterance.rate = AVSpeechUtteranceDefaultSpeechRate * speechRate
         utterance.pitchMultiplier = 1.0
 
-        isSpeaking = true
+        currentText = text
         synthesizer.speak(utterance)
+    }
+
+    func toggleSpeak(_ text: String, language: String = "ko-KR") {
+        if isSpeaking(text) {
+            stop()
+        } else {
+            speak(text, language: language)
+        }
     }
 
     func stop() {
         synthesizer.stopSpeaking(at: .immediate)
-        isSpeaking = false
+        currentText = nil
+    }
+
+    nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        Task { @MainActor in self.currentText = nil }
+    }
+
+    nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance) {
+        Task { @MainActor in self.currentText = nil }
     }
 }
 

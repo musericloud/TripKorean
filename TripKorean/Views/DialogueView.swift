@@ -117,9 +117,9 @@ struct DialogueBubble: View {
                             .font(.body)
                             .fontWeight(.medium)
                         Button {
-                            speechService.speak(line.korean)
+                            speechService.toggleSpeak(line.korean)
                         } label: {
-                            Image(systemName: "speaker.wave.2")
+                            Image(systemName: speechService.isSpeaking(line.korean) ? "stop.fill" : "speaker.wave.2")
                                 .font(.caption)
                         }
                         .buttonStyle(.plain)

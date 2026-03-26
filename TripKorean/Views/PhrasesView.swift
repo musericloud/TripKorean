@@ -54,9 +54,9 @@ struct PhraseRow: View {
                 Spacer()
 
                 Button {
-                    speechService.speak(phrase.korean)
+                    speechService.toggleSpeak(phrase.korean)
                 } label: {
-                    Image(systemName: "speaker.wave.2.fill")
+                    Image(systemName: speechService.isSpeaking(phrase.korean) ? "stop.fill" : "speaker.wave.2.fill")
                         .font(.title3)
                         .foregroundStyle(.blue)
                 }

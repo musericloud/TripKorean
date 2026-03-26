@@ -15,6 +15,7 @@
 		29A9081ED5FD1FD151F07E4A /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745182F47D861EBC4C2B200 /* SpeechService.swift */; };
 		31A267EEE659F174CAA815A1 /* KoreanRomanizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEA1759A0CD78907E581CBD /* KoreanRomanizer.swift */; };
 		35D6274CE862F1D1EC5AFC08 /* phrases.json in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3C1A0D8874DFB66F04135 /* phrases.json */; };
+		4EAACB00DDF0D6C399EC2100 /* PhotoTranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67E315B707747B9A66F428 /* PhotoTranslateView.swift */; };
 		6540B297FFD6CA2ADE117470 /* PhraseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7C5F08A138FF7A0494C7F /* PhraseStore.swift */; };
 		656FCCA63DA0CA86193BB9AC /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673BB165E45752AB77C7575B /* Phrase.swift */; };
 		6C32E3B1238FA06E1D070813 /* SpeechRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC117004CF3F83D3424329E /* SpeechRecognitionService.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		11F77E260CD35FD3C2555CD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15DF86063B6AA182EF1AECED /* FavoritesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStore.swift; sourceTree = "<group>"; };
+		1E67E315B707747B9A66F428 /* PhotoTranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTranslateView.swift; sourceTree = "<group>"; };
 		44C3E70079728BEC209F87B6 /* TripKorean.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripKorean.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		673BB165E45752AB77C7575B /* Phrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
 		6BC117004CF3F83D3424329E /* SpeechRecognitionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionService.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				FB18F30386EBEF7D643A4183 /* DialogueView.swift */,
 				E649EA37C99C2B25E3A5312B /* FavoritesView.swift */,
+				1E67E315B707747B9A66F428 /* PhotoTranslateView.swift */,
 				C67EEA8F3D0142FD164A17FC /* PhrasesView.swift */,
 				D4FCAEF65B6282BD0C84F49C /* SettingsView.swift */,
 				7D2ED71611E27117894255E7 /* TranslateView.swift */,
@@ -189,6 +192,7 @@
 				138EBD47ECB7A63CB60731E0 /* FavoritesStore.swift in Sources */,
 				EBE06A517D68B763495E5C10 /* FavoritesView.swift in Sources */,
 				31A267EEE659F174CAA815A1 /* KoreanRomanizer.swift in Sources */,
+				4EAACB00DDF0D6C399EC2100 /* PhotoTranslateView.swift in Sources */,
 				656FCCA63DA0CA86193BB9AC /* Phrase.swift in Sources */,
 				6540B297FFD6CA2ADE117470 /* PhraseStore.swift in Sources */,
 				F6FA2D7C8967BE8B294376D1 /* PhrasesView.swift in Sources */,

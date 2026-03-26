@@ -56,9 +56,9 @@ struct FavoriteRow: View {
                 Spacer()
 
                 Button {
-                    speechService.speak(favorite.korean)
+                    speechService.toggleSpeak(favorite.korean)
                 } label: {
-                    Image(systemName: "speaker.wave.2.fill")
+                    Image(systemName: speechService.isSpeaking(favorite.korean) ? "stop.fill" : "speaker.wave.2.fill")
                         .font(.title3)
                         .foregroundStyle(.blue)
                 }
