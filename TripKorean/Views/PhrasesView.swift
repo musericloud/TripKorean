@@ -3,22 +3,107 @@ import SwiftUI
 struct PhrasesView: View {
     let store: PhraseStore
     let speechService: SpeechService
+    @State private var searchText = ""
+
+    private static let palette: [Color] = [
+        .blue, .orange, .green, .purple, .pink, .teal, .red, .indigo, .brown, .cyan, .mint, .yellow,
+    ]
+
+    private let columns = [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)]
+
+    private var searchResults: [(category: PhraseCategory, phrase: Phrase)] {
+        guard !searchText.isEmpty else { return [] }
+        return store.categories.flatMap { category in
+            category.phrases
+                .filter {
+                    $0.korean.localizedCaseInsensitiveContains(searchText)
+                        || $0.chinese.localizedCaseInsensitiveContains(searchText)
+                        || $0.pronunciation.localizedCaseInsensitiveContains(searchText)
+                }
+                .map { (category, $0) }
+        }
+    }
 
     var body: some View {
         NavigationStack {
-            List(store.categories) { category in
-                NavigationLink {
-                    PhraseListView(
-                        category: category,
-                        speechService: speechService
-                    )
-                } label: {
-                    Label(category.name, systemImage: category.icon)
-                        .font(.body)
+            Group {
+                if searchText.isEmpty {
+                    categoryGrid
+                } else {
+                    searchResultList
                 }
             }
             .navigationTitle("旅行短语")
+            .searchable(text: $searchText, prompt: "搜索中文、韩语或罗马音")
         }
+    }
+
+    private var categoryGrid: some View {
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 12) {
+                ForEach(Array(store.categories.enumerated()), id: \.element.id) { index, category in
+                    NavigationLink {
+                        PhraseListView(
+                            category: category,
+                            speechService: speechService
+                        )
+                    } label: {
+                        CategoryCard(
+                            category: category,
+                            color: Self.palette[index % Self.palette.count]
+                        )
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding()
+        }
+        .background(Color(.systemGroupedBackground))
+    }
+
+    private var searchResultList: some View {
+        List {
+            if searchResults.isEmpty {
+                ContentUnavailableView.search(text: searchText)
+            } else {
+                ForEach(searchResults, id: \.phrase.id) { result in
+                    VStack(alignment: .leading, spacing: 4) {
+                        PhraseRow(phrase: result.phrase, speechService: speechService)
+                        Text(result.category.name)
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct CategoryCard: View {
+    let category: PhraseCategory
+    let color: Color
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack {
+                Image(systemName: category.icon)
+                    .font(.title2)
+                    .foregroundStyle(.white)
+                    .frame(width: 42, height: 42)
+                    .background(color.gradient, in: RoundedRectangle(cornerRadius: 11))
+                Spacer()
+                Text("\(category.phrases.count)")
+                    .font(.caption)
+                    .fontWeight(.medium)
+                    .foregroundStyle(.secondary)
+            }
+            Text(category.name)
+                .font(.headline)
+                .foregroundStyle(.primary)
+        }
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16))
     }
 }
 

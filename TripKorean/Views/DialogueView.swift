@@ -3,34 +3,71 @@ import SwiftUI
 struct DialogueListView: View {
     let store: PhraseStore
     let speechService: SpeechService
+    let favoritesStore: FavoritesStore
 
     var body: some View {
         NavigationStack {
-            List(store.dialogues) { dialogue in
-                NavigationLink {
-                    DialogueDetailView(
-                        dialogue: dialogue,
-                        speechService: speechService
-                    )
-                } label: {
-                    HStack(spacing: 12) {
-                        Image(systemName: dialogue.icon)
-                            .font(.title2)
-                            .foregroundStyle(.blue)
-                            .frame(width: 40)
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(dialogue.title)
-                                .font(.headline)
-                            Text(dialogue.scene)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                                .lineLimit(1)
+            List {
+                Section {
+                    NavigationLink {
+                        ConversationView(
+                            speechService: speechService,
+                            favoritesStore: favoritesStore
+                        )
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "person.line.dotted.person.fill")
+                                .font(.title2)
+                                .foregroundStyle(.white)
+                                .frame(width: 48, height: 48)
+                                .background(
+                                    LinearGradient(
+                                        colors: [.blue, .orange],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    ),
+                                    in: RoundedRectangle(cornerRadius: 12)
+                                )
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("实时对话翻译")
+                                    .font(.headline)
+                                Text("面对面交流，两个按钮按住即说")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        .padding(.vertical, 4)
+                    }
+                }
+
+                Section("跟读练习 · 实景对话") {
+                    ForEach(store.dialogues) { dialogue in
+                        NavigationLink {
+                            DialogueDetailView(
+                                dialogue: dialogue,
+                                speechService: speechService
+                            )
+                        } label: {
+                            HStack(spacing: 12) {
+                                Image(systemName: dialogue.icon)
+                                    .font(.title2)
+                                    .foregroundStyle(.blue)
+                                    .frame(width: 40)
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(dialogue.title)
+                                        .font(.headline)
+                                    Text(dialogue.scene)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                        .lineLimit(1)
+                                }
+                            }
+                            .padding(.vertical, 4)
                         }
                     }
-                    .padding(.vertical, 4)
                 }
             }
-            .navigationTitle("实景对话")
+            .navigationTitle("对话")
         }
     }
 }

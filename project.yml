@@ -11,6 +11,7 @@ settings:
     SWIFT_VERSION: "6.0"
     MARKETING_VERSION: "1.0.0"
     CURRENT_PROJECT_VERSION: 1
+    DEVELOPMENT_TEAM: VX78M2QPJX
 
 targets:
   TripKorean:
@@ -26,6 +27,7 @@ targets:
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
         INFOPLIST_KEY_NSCameraUsageDescription: "TripKorean needs camera access to scan and translate Korean text on signs and menus."
         INFOPLIST_KEY_NSSpeechRecognitionUsageDescription: "TripKorean needs speech recognition to understand your spoken Korean."
         INFOPLIST_KEY_NSMicrophoneUsageDescription: "TripKorean needs microphone access for voice input and speech recognition."

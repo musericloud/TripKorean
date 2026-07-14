@@ -7,12 +7,20 @@ struct ContentView: View {
 
     var body: some View {
         TabView {
+            Tab("发音", systemImage: "waveform") {
+                HangulHomeView(speechService: speechService)
+            }
+
             Tab("短语", systemImage: "text.book.closed.fill") {
                 PhrasesView(store: store, speechService: speechService)
             }
 
             Tab("对话", systemImage: "bubble.left.and.bubble.right.fill") {
-                DialogueListView(store: store, speechService: speechService)
+                DialogueListView(
+                    store: store,
+                    speechService: speechService,
+                    favoritesStore: favoritesStore
+                )
             }
 
             Tab("翻译", systemImage: "character.book.closed.fill") {
@@ -21,10 +29,6 @@ struct ContentView: View {
 
             Tab("收藏", systemImage: "star.fill") {
                 FavoritesView(favoritesStore: favoritesStore, speechService: speechService)
-            }
-
-            Tab("设置", systemImage: "gearshape.fill") {
-                SettingsView()
             }
         }
     }

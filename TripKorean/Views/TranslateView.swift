@@ -57,6 +57,13 @@ struct TranslateView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {
+                        ConversationView(speechService: speechService, favoritesStore: favoritesStore)
+                    } label: {
+                        Image(systemName: "person.line.dotted.person.fill")
+                    }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
                         PhotoTranslateView(speechService: speechService, favoritesStore: favoritesStore)
                     } label: {
                         Image(systemName: "camera.fill")
