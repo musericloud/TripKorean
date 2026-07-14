@@ -702,8 +702,14 @@ struct PhotoTranslateView: View {
             : ["zh-Hans", "ko-KR"]
         let orientation = CGImagePropertyOrientation(image.imageOrientation)
 
+        let koreanSource = isKoreanToChinese
         Task.detached(priority: .userInitiated) { [languages] in
-            let result = Self.performOCR(cgImage: cgImage, orientation: orientation, languages: languages)
+            let result = Self.performOCR(
+                cgImage: cgImage,
+                orientation: orientation,
+                languages: languages,
+                koreanSource: koreanSource
+            )
             await MainActor.run {
                 blocks = result
                 isRecognizing = false
@@ -718,7 +724,8 @@ struct PhotoTranslateView: View {
     private nonisolated static func performOCR(
         cgImage: CGImage,
         orientation: CGImagePropertyOrientation,
-        languages: [String]
+        languages: [String],
+        koreanSource: Bool
     ) -> [RecognizedBlock] {
         let request = VNRecognizeTextRequest()
         request.recognitionLevel = .accurate
@@ -730,11 +737,28 @@ struct PhotoTranslateView: View {
 
         return (request.results ?? []).compactMap { observation in
             guard let candidate = observation.topCandidates(1).first,
-                  !candidate.string.trimmingCharacters(in: .whitespaces).isEmpty else { return nil }
+                  !candidate.string.trimmingCharacters(in: .whitespaces).isEmpty,
+                  containsSourceScript(candidate.string, korean: koreanSource) else { return nil }
             let box = observation.boundingBox
             // Vision 使用左下原点，转换为左上原点
             let converted = CGRect(x: box.minX, y: 1 - box.maxY, width: box.width, height: box.height)
             return RecognizedBlock(text: candidate.string, box: converted)
+        }
+    }
+
+    /// 是否包含源语言文字（韩→中须含韩文，中→韩须含汉字）。
+    /// 纯英文、纯数字、纯符号的块不需要翻译，直接过滤。
+    private nonisolated static func containsSourceScript(_ text: String, korean: Bool) -> Bool {
+        text.unicodeScalars.contains { scalar in
+            let v = scalar.value
+            if korean {
+                return (0xAC00...0xD7A3).contains(v)  // 韩文音节
+                    || (0x1100...0x11FF).contains(v)  // 谚文字母
+                    || (0x3130...0x318F).contains(v)  // 兼容谚文字母
+            } else {
+                return (0x4E00...0x9FFF).contains(v)  // 中日韩统一表意文字
+                    || (0x3400...0x4DBF).contains(v)  // 扩展A
+            }
         }
     }
 
