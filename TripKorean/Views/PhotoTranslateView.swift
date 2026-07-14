@@ -336,13 +336,13 @@ struct PhotoTranslateView: View {
                     .offset(x: -6, y: -6)
             }
             .frame(width: max(rect.width, 12), height: max(rect.height, 12))
-            .position(x: rect.midX, y: rect.midY)
             .contentShape(Rectangle().inset(by: -8))
             .onTapGesture {
                 withAnimation(.spring(duration: 0.25)) {
                     tapBlock(block)
                 }
             }
+            .position(x: rect.midX, y: rect.midY)
     }
 
     private func tapBlock(_ block: RecognizedBlock) {
