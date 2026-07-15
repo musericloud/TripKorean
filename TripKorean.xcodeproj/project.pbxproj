@@ -62,6 +62,7 @@
 		33D3C07E2170B05BB078ABFC /* B9C8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3C7C51D8D3F952CE38818DA /* B9C8.mp3 */; };
 		34071AA9356A632055CB9DCF /* C608.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6040F30935C426A324308A02 /* C608.mp3 */; };
 		34EAFADEC01F788DD5811379 /* B85C.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84F8FA9C243F03DEC11FBF04 /* B85C.mp3 */; };
+		356B29FA78FF73F94DFEF1D7 /* ZoomableContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672E5A0AF56BE0BBFAC78F09 /* ZoomableContainer.swift */; };
 		3579175C1A5247486381D067 /* D3B4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9E47CEFFE92471596F7FCB60 /* D3B4.mp3 */; };
 		35D6274CE862F1D1EC5AFC08 /* phrases.json in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3C1A0D8874DFB66F04135 /* phrases.json */; };
 		35F328D7E9B14DD34260EF82 /* BA70.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEDC45DCDD5788CB0C00059C /* BA70.mp3 */; };
@@ -321,6 +322,7 @@
 		623B3CD1F22D6C8DBEDAB989 /* C545.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = C545.mp3; sourceTree = "<group>"; };
 		625CF437835638C6DBB7CD71 /* B38C.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = B38C.mp3; sourceTree = "<group>"; };
 		658D55F3D6908A69196BB9C6 /* C598-AE30.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "C598-AE30.mp3"; sourceTree = "<group>"; };
+		672E5A0AF56BE0BBFAC78F09 /* ZoomableContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableContainer.swift; sourceTree = "<group>"; };
 		673BB165E45752AB77C7575B /* Phrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
 		6B99883B6544F2D63DC21CAF /* B958.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = B958.mp3; sourceTree = "<group>"; };
 		6BC117004CF3F83D3424329E /* SpeechRecognitionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionService.swift; sourceTree = "<group>"; };
@@ -726,6 +728,7 @@
 				D4FCAEF65B6282BD0C84F49C /* SettingsView.swift */,
 				7D2ED71611E27117894255E7 /* TranslateView.swift */,
 				FA0D54400F6544ECC134A2A9 /* TranslationSharedViews.swift */,
+				672E5A0AF56BE0BBFAC78F09 /* ZoomableContainer.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1054,6 +1057,7 @@
 				1C7ADEE662C9B4A2DA51B0ED /* TranslateView.swift in Sources */,
 				827460DFBEB431CDF61AD364 /* TranslationSharedViews.swift in Sources */,
 				108F5E300A5799CE15E4B789 /* TripKoreanApp.swift in Sources */,
+				356B29FA78FF73F94DFEF1D7 /* ZoomableContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1094,7 +1098,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = VX78M2QPJX;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1153,7 +1157,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = VX78M2QPJX;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

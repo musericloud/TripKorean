@@ -24,6 +24,12 @@ struct DictionaryQuery: Identifiable {
     }
 }
 
+/// 全屏弹层：相机 / 全屏看图（统一入口，避免多个 fullScreenCover 冲突）
+enum PhotoCover: String, Identifiable {
+    case camera, fullImage
+    var id: String { rawValue }
+}
+
 struct PhotoTranslateView: View {
     @State private var selectedImage: UIImage?
     @State private var blocks: [RecognizedBlock] = []
@@ -33,7 +39,7 @@ struct PhotoTranslateView: View {
     @State private var isRecognizing = false
     @State private var isTranslating = false
     @State private var recognitionFailed = false
-    @State private var showCamera = false
+    @State private var activeCover: PhotoCover?
     @State private var selectedItem: PhotosPickerItem?
     @State private var configuration: TranslationSession.Configuration?
     @State private var showSavedToast = false
@@ -45,12 +51,6 @@ struct PhotoTranslateView: View {
     @State private var mergedTranslation = ""
     @State private var isTranslatingMerged = false
     @State private var pendingMergedSource: String?
-
-    // 图片缩放
-    @State private var zoomScale: CGFloat = 1
-    @State private var steadyZoom: CGFloat = 1
-    @State private var panOffset: CGSize = .zero
-    @State private var steadyPan: CGSize = .zero
 
     let speechService: SpeechService
     let favoritesStore: FavoritesStore
@@ -124,9 +124,25 @@ struct PhotoTranslateView: View {
         .background(Color(.systemGroupedBackground))
         .navigationTitle("拍照翻译")
         .navigationBarTitleDisplayMode(.inline)
-        .fullScreenCover(isPresented: $showCamera) {
-            CameraPicker(image: $selectedImage)
-                .ignoresSafeArea()
+        .toolbar {
+            if selectedImage != nil {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        activeCover = .fullImage
+                    } label: {
+                        Image(systemName: "arrow.up.left.and.arrow.down.right")
+                    }
+                }
+            }
+        }
+        .fullScreenCover(item: $activeCover) { cover in
+            switch cover {
+            case .camera:
+                CameraPicker(image: $selectedImage)
+                    .ignoresSafeArea()
+            case .fullImage:
+                fullscreenImageViewer
+            }
         }
         .sheet(item: $dictionaryQuery) { query in
             if let url = query.url {
@@ -171,50 +187,54 @@ struct PhotoTranslateView: View {
 
     // MARK: - 图片区（可缩放）
 
+    /// 图片显示高度：约半屏，小屏不低于 320，大屏不超过 500
+    private var inlineImageHeight: CGFloat {
+        min(max(UIScreen.main.bounds.height * 0.46, 320), 500)
+    }
+
+    private func fittedSize(for imageSize: CGSize, in container: CGSize) -> CGSize {
+        let scale = min(container.width / max(imageSize.width, 1), container.height / max(imageSize.height, 1))
+        return CGSize(width: imageSize.width * scale, height: imageSize.height * scale)
+    }
+
+    private var zoomResetToken: String {
+        "\(selectedImage.map { ObjectIdentifier($0).hashValue } ?? 0)-\(isKoreanToChinese)-\(blocks.count)"
+    }
+
+    /// 带标注框的图片内容（内嵌和全屏共用）
+    private func annotatedImage(_ image: UIImage, fitted: CGSize) -> some View {
+        Image(uiImage: image)
+            .resizable()
+            .scaledToFit()
+            .frame(width: fitted.width, height: fitted.height)
+            .overlay {
+                ForEach(Array(blocks.enumerated()), id: \.element.id) { index, block in
+                    blockHighlight(block: block, index: index, in: fitted)
+                }
+            }
+    }
+
     private var imageSection: some View {
         VStack(spacing: 12) {
             if let image = selectedImage {
                 GeometryReader { geo in
-                    let scale = min(geo.size.width / max(image.size.width, 1), geo.size.height / max(image.size.height, 1))
-                    let fitted = CGSize(width: image.size.width * scale, height: image.size.height * scale)
-
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: fitted.width, height: fitted.height)
-                        .overlay {
-                            ForEach(Array(blocks.enumerated()), id: \.element.id) { index, block in
-                                blockHighlight(block: block, index: index, in: fitted)
-                            }
-                        }
-                        .scaleEffect(zoomScale)
-                        .offset(panOffset)
-                        .position(x: geo.size.width / 2, y: geo.size.height / 2)
-                        .gesture(zoomGestures(container: geo.size, fitted: fitted))
-                }
-                .frame(height: 360)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .contentShape(RoundedRectangle(cornerRadius: 12))
-                .overlay(alignment: .bottomTrailing) {
-                    if zoomScale > 1.01 {
-                        Button {
-                            withAnimation(.spring(duration: 0.3)) { resetZoom() }
-                        } label: {
-                            Image(systemName: "arrow.down.right.and.arrow.up.left")
-                                .font(.caption)
-                                .padding(8)
-                                .background(.ultraThinMaterial, in: Circle())
-                        }
-                        .padding(8)
-                    } else {
-                        Text("双指缩放 · 双击放大")
-                            .font(.caption2)
-                            .foregroundStyle(.secondary)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 4)
-                            .background(.ultraThinMaterial, in: Capsule())
-                            .padding(8)
+                    ZoomableContainer(
+                        contentSize: fittedSize(for: image.size, in: geo.size),
+                        resetToken: zoomResetToken
+                    ) {
+                        annotatedImage(image, fitted: fittedSize(for: image.size, in: geo.size))
                     }
+                }
+                .frame(height: inlineImageHeight)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .overlay(alignment: .bottomTrailing) {
+                    Text("双指缩放 · 双击放大 · 右上角全屏")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(.ultraThinMaterial, in: Capsule())
+                        .padding(8)
                 }
             } else {
                 VStack(spacing: 10) {
@@ -233,7 +253,7 @@ struct PhotoTranslateView: View {
 
             HStack(spacing: 16) {
                 Button {
-                    showCamera = true
+                    activeCover = .camera
                 } label: {
                     Label("拍照", systemImage: "camera.fill")
                         .frame(maxWidth: .infinity)
@@ -259,59 +279,88 @@ struct PhotoTranslateView: View {
         }
     }
 
-    private func zoomGestures(container: CGSize, fitted: CGSize) -> some Gesture {
-        let magnify = MagnifyGesture()
-            .onChanged { value in
-                zoomScale = min(max(steadyZoom * value.magnification, 1), 4)
-            }
-            .onEnded { _ in
-                steadyZoom = zoomScale
-                if zoomScale <= 1.01 { withAnimation(.spring(duration: 0.25)) { resetZoom() } }
-                clampPan(container: container, fitted: fitted)
-            }
+    // MARK: - 全屏看图
 
-        let pan = DragGesture(minimumDistance: 12)
-            .onChanged { value in
-                guard steadyZoom > 1 else { return }
-                panOffset = CGSize(
-                    width: steadyPan.width + value.translation.width,
-                    height: steadyPan.height + value.translation.height
-                )
-            }
-            .onEnded { _ in
-                guard steadyZoom > 1 else { return }
-                clampPan(container: container, fitted: fitted)
-                steadyPan = panOffset
-            }
+    /// 全屏看图：上下结构布局（控件不与缩放视图重叠，保证可点）
+    private var fullscreenImageViewer: some View {
+        VStack(spacing: 0) {
+            HStack {
+                Toggle(isOn: $isMultiSelect.animation()) {
+                    Label("多选合并", systemImage: "square.on.square.dashed")
+                        .font(.subheadline)
+                }
+                .toggleStyle(.button)
+                .buttonStyle(.bordered)
+                .controlSize(.small)
+                .tint(.white)
 
-        let doubleTap = TapGesture(count: 2)
-            .onEnded {
-                withAnimation(.spring(duration: 0.3)) {
-                    if zoomScale > 1.01 {
-                        resetZoom()
-                    } else {
-                        zoomScale = 2.5
-                        steadyZoom = 2.5
+                if !selectedIDs.isEmpty {
+                    Button("清除") {
+                        withAnimation { clearSelection() }
+                    }
+                    .font(.caption)
+                    .tint(.white)
+                }
+
+                Spacer()
+
+                Button {
+                    activeCover = nil
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.headline)
+                        .foregroundStyle(.white)
+                        .padding(10)
+                        .background(.white.opacity(0.15), in: Circle())
+                }
+            }
+            .padding(.horizontal)
+            .padding(.vertical, 6)
+
+            if let image = selectedImage {
+                GeometryReader { geo in
+                    ZoomableContainer(
+                        contentSize: fittedSize(for: image.size, in: geo.size),
+                        resetToken: zoomResetToken
+                    ) {
+                        annotatedImage(image, fitted: fittedSize(for: image.size, in: geo.size))
                     }
                 }
             }
 
-        return doubleTap.simultaneously(with: magnify).simultaneously(with: pan)
-    }
-
-    private func resetZoom() {
-        zoomScale = 1
-        steadyZoom = 1
-        panOffset = .zero
-        steadyPan = .zero
-    }
-
-    private func clampPan(container: CGSize, fitted: CGSize) {
-        let maxX = max((fitted.width * zoomScale - container.width) / 2, 0) + 40
-        let maxY = max((fitted.height * zoomScale - container.height) / 2, 0) + 40
-        withAnimation(.spring(duration: 0.25)) {
-            panOffset.width = min(max(panOffset.width, -maxX), maxX)
-            panOffset.height = min(max(panOffset.height, -maxY), maxY)
+            if !selectedIDs.isEmpty {
+                ScrollView {
+                    detailCard
+                        .padding(.horizontal)
+                        .padding(.vertical, 8)
+                }
+                .frame(maxHeight: 330)
+                .transition(.move(edge: .bottom).combined(with: .opacity))
+            } else if !blocks.isEmpty {
+                Text("点击标注框查看翻译 · 双指缩放 · 双击放大")
+                    .font(.caption)
+                    .foregroundStyle(.white.opacity(0.85))
+                    .padding(.vertical, 10)
+            }
+        }
+        .background(Color.black.ignoresSafeArea())
+        .sheet(item: $dictionaryQuery) { query in
+            if let url = query.url {
+                SafariView(url: url)
+                    .ignoresSafeArea()
+            }
+        }
+        .overlay(alignment: .top) {
+            if showSavedToast {
+                Text("已收藏 ★")
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .background(.ultraThinMaterial, in: Capsule())
+                    .transition(.move(edge: .top).combined(with: .opacity))
+                    .padding(.top, 60)
+            }
         }
     }
 
@@ -695,7 +744,6 @@ struct PhotoTranslateView: View {
         blocks = []
         clearSelection()
         isListExpanded = false
-        resetZoom()
 
         let languages: [String] = isKoreanToChinese
             ? ["ko-KR", "zh-Hans"]
