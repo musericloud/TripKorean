@@ -10,8 +10,8 @@ struct ZoomableContainer<Content: View>: UIViewRepresentable {
     let resetToken: String
     @ViewBuilder var content: Content
 
-    func makeUIView(context: Context) -> UIScrollView {
-        let scroll = UIScrollView()
+    func makeUIView(context: Context) -> CenteringScrollView {
+        let scroll = CenteringScrollView()
         scroll.minimumZoomScale = 1
         scroll.maximumZoomScale = 5
         scroll.delegate = context.coordinator
@@ -27,6 +27,7 @@ struct ZoomableContainer<Content: View>: UIViewRepresentable {
         let hostView = context.coordinator.host.view!
         hostView.backgroundColor = .clear
         scroll.addSubview(hostView)
+        scroll.centeredView = hostView
 
         let doubleTap = UITapGestureRecognizer(
             target: context.coordinator,
@@ -38,7 +39,7 @@ struct ZoomableContainer<Content: View>: UIViewRepresentable {
         return scroll
     }
 
-    func updateUIView(_ scroll: UIScrollView, context: Context) {
+    func updateUIView(_ scroll: CenteringScrollView, context: Context) {
         let coordinator = context.coordinator
         coordinator.host.rootView = AnyView(content)
 
@@ -46,10 +47,11 @@ struct ZoomableContainer<Content: View>: UIViewRepresentable {
             coordinator.contentSize = contentSize
             coordinator.resetToken = resetToken
             scroll.zoomScale = 1
-            coordinator.host.view.frame = CGRect(origin: .zero, size: contentSize)
+            // 只改尺寸，原点交给 layoutSubviews 实时居中，避免先贴边再跳中的闪动
+            coordinator.host.view.frame.size = contentSize
             scroll.contentSize = contentSize
+            scroll.setNeedsLayout()
         }
-        coordinator.centerContent(scroll)
     }
 
     func makeCoordinator() -> Coordinator { Coordinator() }
@@ -64,14 +66,7 @@ struct ZoomableContainer<Content: View>: UIViewRepresentable {
         }
 
         func scrollViewDidZoom(_ scrollView: UIScrollView) {
-            centerContent(scrollView)
-        }
-
-        /// 内容小于视口时居中显示
-        func centerContent(_ scrollView: UIScrollView) {
-            let insetX = max((scrollView.bounds.width - scrollView.contentSize.width) / 2, 0)
-            let insetY = max((scrollView.bounds.height - scrollView.contentSize.height) / 2, 0)
-            scrollView.contentInset = UIEdgeInsets(top: insetY, left: insetX, bottom: insetY, right: insetX)
+            (scrollView as? CenteringScrollView)?.centerContent()
         }
 
         @objc func handleDoubleTap(_ gesture: UITapGestureRecognizer) {
@@ -87,6 +82,27 @@ struct ZoomableContainer<Content: View>: UIViewRepresentable {
                     animated: true
                 )
             }
+        }
+    }
+}
+
+/// 在每次布局时把内容视图居中（Apple PhotoScroller 模式），
+/// 保证首帧渲染前就已居中，不会出现先贴边再弹回的闪动。
+final class CenteringScrollView: UIScrollView {
+    weak var centeredView: UIView?
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        centerContent()
+    }
+
+    func centerContent() {
+        guard let view = centeredView else { return }
+        var frame = view.frame
+        frame.origin.x = frame.width < bounds.width ? (bounds.width - frame.width) / 2 : 0
+        frame.origin.y = frame.height < bounds.height ? (bounds.height - frame.height) / 2 : 0
+        if view.frame.origin != frame.origin {
+            view.frame = frame
         }
     }
 }
