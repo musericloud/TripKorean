@@ -12,6 +12,7 @@ struct TranslateView: View {
     @State private var showSavedToast = false
     let speechService: SpeechService
     let favoritesStore: FavoritesStore
+    let receiptStore: ReceiptStore
 
     @State private var speechRecognition = SpeechRecognitionService()
 
@@ -67,6 +68,13 @@ struct TranslateView: View {
                         PhotoTranslateView(speechService: speechService, favoritesStore: favoritesStore)
                     } label: {
                         Image(systemName: "camera.fill")
+                    }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        ReceiptHomeView(receiptStore: receiptStore, speechService: speechService)
+                    } label: {
+                        Image(systemName: "doc.text.viewfinder")
                     }
                 }
             }

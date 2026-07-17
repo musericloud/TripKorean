@@ -4,6 +4,7 @@ struct ContentView: View {
     @State private var store = PhraseStore()
     @State private var speechService = SpeechService()
     @State private var favoritesStore = FavoritesStore()
+    @State private var receiptStore = ReceiptStore()
 
     var body: some View {
         TabView {
@@ -24,7 +25,11 @@ struct ContentView: View {
             }
 
             Tab("翻译", systemImage: "character.book.closed.fill") {
-                TranslateView(speechService: speechService, favoritesStore: favoritesStore)
+                TranslateView(
+                    speechService: speechService,
+                    favoritesStore: favoritesStore,
+                    receiptStore: receiptStore
+                )
             }
 
             Tab("收藏", systemImage: "star.fill") {
